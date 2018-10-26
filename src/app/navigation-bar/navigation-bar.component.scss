@@ -1,0 +1,35 @@
+nav {
+  background: #2D2E2E;
+  height: 100%;
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+
+  ul {
+      list-style-type: none;
+      padding: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin: 0;
+
+
+      li {
+        display: inline-block;
+        font-size: 110%;
+        padding-left: 15px;
+
+          a {
+              color: #fff;
+              padding: 0;
+              text-decoration: none;
+              font-size: 25px;
+          }
+
+          // .activated {
+
+          // }
+      }
+  }
+
+}
