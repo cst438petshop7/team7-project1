@@ -1,0 +1,55 @@
+body {
+  text-align:center;
+  margin:0 auto;
+  color: black;
+}
+hr {
+  width: 95%;
+  border-color: black;
+  background-color: black;
+  height: 3px;
+}
+input {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, .1);
+}
+input[type=submit] {
+  color: black !important;
+  font-size: 20px;
+}
+input[type=text], textarea{
+  margin-left: 5px;
+}
+#username{
+  margin-left: 0px !important;
+}
+select {
+  margin:5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, .1);
+}
+.form-control{
+  color: black;
+  background-color: rgba(0, 0, 0, .1);
+}
+.container {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  border-color: black;
+  border-style: solid;
+  width: 25%;
+  padding: 20px;
+  padding-top: 10px;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, .9);
+}
+#inside {
+  text-align:left;
+}
