@@ -1,0 +1,44 @@
+#sign-in{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px 15px 45px 15px;
+  border:2px solid black;
+  border-radius: 3px;
+  text-align: center;
+}
+h1{
+  margin-top: 5px;
+}
+#user, #pass{
+  margin: 2px;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 20px;
+}
+input{
+  border-radius: 2px;
+  font-size: 20px;
+  color: #1fadff;
+}
+.button {
+  background-color: #1fadff;
+  border:1px solid #126392;
+  color: rgb(255, 255, 255);
+  padding: 3px 25px 3px 25px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  opacity: 1
+}
+
