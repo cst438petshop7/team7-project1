@@ -1,10 +1,14 @@
 nav {
   background: rgb(32, 32, 32);
-  height: 100%;
+  right: 0px;
+  left: 0px;
+  top: 0px;
   list-style-type: none;
   text-align: left;
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
+  margin-bottom: 2px;
+  position: fixed;
+  width: 100%;
 
   ul {
       list-style-type: none;
@@ -17,14 +21,11 @@ nav {
       li {
         display: inline-block;
         font-size: 110%;
+        padding: 5px;
         padding-left: 15px;
+        color: #fff;
+        font-size: 25px;
 
-          a {
-              color: #fff;
-              padding: 0;
-              text-decoration: none;
-              font-size: 25px;
-          }
 
       }
   }
