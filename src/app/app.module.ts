@@ -28,6 +28,18 @@ const routes: Routes = [
     path: 'products',
     component: ProductsPageComponent
   },
+  {
+    path: 'product-details',
+    component: DetailsPageComponent
+  },
+  {
+    path: 'thank-you',
+    component: ThankyouPageComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutPageComponent
+  },
 ];
 
 @NgModule({
