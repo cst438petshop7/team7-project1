@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ShopdbApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "edu.csumb.cst438.shopdb.ShopdbApplication",
+            "args": "",
+            "projectName": "shopdb"
+        }
+    ]
+}
