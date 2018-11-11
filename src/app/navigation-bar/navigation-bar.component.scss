@@ -23,7 +23,7 @@ nav {
         display: inline-block;
         font-size: 110%;
         padding: 5px;
-        padding-left: 15px;
+        width: 97%;
         color: #fff;
         font-size: 25px;
 
@@ -31,4 +31,17 @@ nav {
       }
   }
 
+}
+#username{
+  margin-right:20px;
+  margin-top: 6px;
+  font-size: 18px;
+  text-decoration: underline;
+}
+#cartbutton{
+  margin-top: 5px;
+}
+a{
+  text-decoration: none;
+  color: white;
 }

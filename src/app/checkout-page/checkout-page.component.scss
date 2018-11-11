@@ -13,6 +13,10 @@ ul{
   padding-left: 20px;
   padding-right: 20px;
 }
+#scroller{
+  width:30px;
+  margin-bottom: 20px;
+}
 li{
   border: 1px rgb(49, 49, 49) solid;
   border-top: none;
@@ -39,12 +43,12 @@ li{
   width: 50%;
 }
 #product-right{
-  width: 250px;
+  width: 310px;
   margin-right: 20px;
 }
 
 button {
-  background-color: #1fadff;
+  background-color: #ff5e5e;
   border:1px solid #126392;
   color: rgb(255, 255, 255);
   margin-top:1px;
@@ -56,13 +60,19 @@ button {
   font-size: 20px;
   border-radius: 1px;
   cursor: pointer;
+  width: 120px;
 }
 button:hover {
-  background-color: #ff5e5e;
+  background-color: #1fadff;
 }
 #product-right{
-  margin-top: 45px;
+  margin-top: 25px;
   text-align: right;
 }
+button-left{
+  margin-right: 15px;
+  margin-top: 25px;
+}
+
 
 
