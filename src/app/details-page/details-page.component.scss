@@ -1,0 +1,41 @@
+h1{
+  padding-top: 60px;
+  padding-left: 40px;
+}
+h2{
+  text-decoration: underline;
+  margin-top:0px;
+  //text-decoration-color: #126392;
+}
+hr{
+  width: 97%;
+}
+img{
+  width:35%;
+  padding-left: 45px;
+  padding-right: 55px;
+}
+#scroller{
+  width: 105px;
+  margin-bottom: 20px;
+}
+#buying{
+  margin-right:65px;
+}
+button {
+  background-color: #1fadff;
+  border:1px solid #126392;
+  color: rgb(255, 255, 255);
+  margin-top:1px;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.5s;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 1px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ff5e5e;
+}

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,22 +10,59 @@ import { SigninPageComponent } from './signin-page/signin-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
 import { ThankyouPageComponent } from './thankyou-page/thankyou-page.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomePageComponent
+  },
+  {
+    path: 'sign-in',
+    component: SigninPageComponent
+  },
+  {
+    path: 'products',
+    component: ProductsPageComponent
+  },
+  {
+    path: 'product-details',
+    component: DetailsPageComponent
+  },
+  {
+    path: 'thank-you',
+    component: ThankyouPageComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutPageComponent
+  },
+];
 
 @NgModule({
   declarations: [
+
     AppComponent,
     DetailsPageComponent,
     HomePageComponent,
     SigninPageComponent,
     CheckoutPageComponent,
     ProductsPageComponent,
-    ThankyouPageComponent
+    ThankyouPageComponent,
+    NavigationBarComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }
