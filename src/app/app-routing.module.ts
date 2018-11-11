@@ -7,6 +7,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SigninPageComponent } from './signin-page/signin-page.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     component: ThankyouPageComponent
   },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
