@@ -15,7 +15,8 @@ public class ShopController {
 
     @GetMapping ("/allUsers")
     public List<User> getAll() {
-        List<User> result = shopRepository.findAll();
-        return result;
+        List<User> users = shopRepository.findAll();
+        return users;
     }
+
 }

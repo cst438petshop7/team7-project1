@@ -1,13 +1,13 @@
 package edu.csumb.cst438.shopdb.users;
 
 public class Credit {
-    private int credit;
+    private double credit;
 
-    public Credit (int credit) {
+    public Credit (double credit) {
         this.credit = credit;
     }
 
-    public int getCredit() {
+    public double getCredit() {
         return this.credit;
     }
 
