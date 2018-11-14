@@ -12,6 +12,7 @@ import edu.csumb.cst438.shopdb.users.Credit;
 import edu.csumb.cst438.shopdb.users.User;
 import edu.csumb.cst438.shopdb.users.Username;
 
+
 @Component
 public class ShopDbSeeder implements CommandLineRunner {
     @Autowired
