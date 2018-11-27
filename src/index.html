@@ -1,13 +1,15 @@
 <!doctype html>
 <script>
-  if(window.location.href == "https://shop7.herokuapp.com/"){
-    window.alert("this is the home page");
-    $("#product-right").css("visibility", "hidden");
-  }
-  else{
-    $("#product-right").css("visibility", "visible");
-  }
+  $(document).ready(function(){
 
+    if(window.location.href == "https://shop7.herokuapp.com/"){
+      window.alert("this is the home page");
+      $("#product-right").css("visibility", "hidden");
+    }
+    else{
+      $("#product-right").css("visibility", "visible");
+    }
+  }); //documentReady 
 </script>
 <html lang="en">
 <head>
