@@ -26,7 +26,7 @@ const routes: Routes = [
     component: DetailsPageComponent
   },
   {
-    path: 'checkout_cart',
+    path: 'cart',
     component: CheckoutPageComponent
   },
   {
