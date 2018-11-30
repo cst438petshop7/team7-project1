@@ -9,7 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get('http://localhost:8080/allProducts');
+    return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
   }
 
 }
