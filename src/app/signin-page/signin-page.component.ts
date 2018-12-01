@@ -18,9 +18,7 @@ export class SigninPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickMe(value: string) {
-    this.user = value;
-
+  onClickMe() {
     this.data.getUserByUsername(this.user).subscribe(
       data => this.getuser$ = data
     );
