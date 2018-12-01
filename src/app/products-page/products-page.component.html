@@ -4,7 +4,7 @@
   <ul [@listStagger]="products$" id="products" style="padding-top: 0px;">
     <li *ngFor= "let product of products$">
         <div id="product-left" style="float: left;">
-          <img style="float: left;" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350" width="100" />
+          <img style="float: left;" src="{{product.imageUrl['imageUrl']}}" width="100" />
           <p id="item-name"><a href="/product-details">{{product.productName['productName']}}</a></p><br style="clear: both;"/>
         </div>
 
