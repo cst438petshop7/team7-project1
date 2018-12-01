@@ -14,5 +14,8 @@ export class DataService {
   getProductById(ID) {
     return this.http.get('https://productsdb-service.herokuapp.com/id/' + ID);
   }
+  getUserByUsername(user) {
+    return this.http.get('https://shopdb-service.herokuapp.com/username/' + user);
+  }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signin-page',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninPageComponent implements OnInit {
 
-  constructor() { }
+  getuser$: Object;
+  user = '';
+  pass = '';
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
   }
 
+  onClickMe(value: string) {
+    this.user = value;
+
+    this.data.getUserByUsername(this.user).subscribe(
+      data => this.getuser$ = data
+    );
+  }
 }

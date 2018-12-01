@@ -1,11 +1,20 @@
+<script>
+    angular.module('windowExample', [])
+      .controller('ExampleController', ['$scope', '$window', function($scope, $window) {
+        $scope.greeting = '{{user}}';
+        $scope.doGreeting = function(greeting) {
+          $window.alert(greeting);
+        };
+      }]);
+  </script>
 <div id="sign-in">
   <h1>Welcome!</h1>
   <p>Please enter username and password.</p>
   <p id='user'>username:</p>
-  <input type="text" name="firstname" value="">
+  <input type="text" name="firstname" value="{{user}}">
   <br>
   <p id='pass'>password:</p>
-  <input type="text" name="lastname" value="">
+  <input type="text" name="lastname" value="{{pass}}">
   <br><br>
-  <button class="button">login</button>
+  <button (click)="onClickMe()" ng-click="doGreeting(greeting)" class="button">login</button>
 </div>
