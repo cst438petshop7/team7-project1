@@ -7,11 +7,11 @@
         };
       }]);
   </script>
-<div id="sign-in">
+<div id="sign-in" ng-controller="ExampleController">
   <h1>Welcome!</h1>
   <p>Please enter username and password.</p>
   <p id='user'>username:</p>
-  <input type="text" name="firstname" value="{{user}}">
+  <input type="text" ng-model="greeting" name="firstname" value="{{user}}">
   <br>
   <p id='pass'>password:</p>
   <input type="text" name="lastname" value="{{pass}}">
