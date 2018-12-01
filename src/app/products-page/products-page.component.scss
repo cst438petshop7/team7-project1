@@ -25,7 +25,8 @@ li{
   background-color: #ebf8ff;
   list-style-type: none;
   img{
-    width: 150px;
+    //width: 150px;
+    height: 100px;
     margin: 10px 20px 10px 20px;
   }
 
@@ -39,7 +40,7 @@ li{
   width: 50%;
 }
 #product-right{
-  width: 250px;
+  width: 265px;
   margin-right: 20px;
 }
 
@@ -63,6 +64,10 @@ button:hover {
 #product-right{
   margin-top: 45px;
   text-align: right;
+}
+a{
+  color: black;
+  // text-decoration: none;
 }
 
 
