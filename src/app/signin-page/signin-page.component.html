@@ -18,6 +18,6 @@
   <input type="text" name="lastname" value="{{pass}}">
   <br><br>
   <form action="/products"*ngIf="getuser$">
-    <button class="button">login</button>
+    <button class="button" (click)="onClickMe()">login</button>
   </form>
 </div>
