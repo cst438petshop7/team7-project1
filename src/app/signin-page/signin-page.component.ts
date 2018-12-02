@@ -22,7 +22,7 @@ export class SigninPageComponent implements OnInit {
   onClickMe() {
     if (this.data.getUserByUsername(this.user).subscribe(
       data => this.getuser$ = data
-    )) {
+    ) != null) {
       this.router.navigateByUrl('/products');
     }
 
