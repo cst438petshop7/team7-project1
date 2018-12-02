@@ -8,11 +8,7 @@
         };
       }]);
   </script>
-<div ng-controller="ExampleController" id="sign-in">
-  <input type="text" ng-model="greeting" aria-label="greeting" />
-  <button ng-click="doGreeting(greeting)">ALERT</button>
-</div>
-<!-- <div id="sign-in" ng-controller="ExampleController">
+<div id="sign-in" ng-controller="ExampleController">
   <h1>Welcome!</h1>
   <p>Please enter username and password.</p>
   <p id='user'>username:</p>
@@ -21,5 +17,7 @@
   <p id='pass'>password:</p>
   <input type="text" name="lastname" value="{{pass}}">
   <br><br>
-  <button ng-click="doGreeting(greeting)" class="button">login</button>
-</div> -->
+  <form action="/products"*ngIf="getuser$">
+    <button class="button">login</button>
+  </form>
+</div>
