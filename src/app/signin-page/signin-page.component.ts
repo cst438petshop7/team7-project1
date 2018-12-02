@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 export class SigninPageComponent implements OnInit {
 
   getuser$: Object;
-  user = '';
-  pass = '';
+  user: string;
+  pass: string;
 
   constructor(private data: DataService, private router: Router) { }
 
@@ -20,9 +20,7 @@ export class SigninPageComponent implements OnInit {
   }
 
   onClickMe() {
-    if (this.data.getUserByUsername(this.user).subscribe(
-      data => this.getuser$ = data
-    ) != null) {
+    if (this.data.getUserByUsername(this.user) != null) {
       this.router.navigateByUrl('/products');
     }
 

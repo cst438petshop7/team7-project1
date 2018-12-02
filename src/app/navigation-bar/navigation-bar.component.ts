@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
+  username = '';
 
   constructor(private router: Router) {
     router.events.subscribe(_ => {
@@ -15,7 +16,6 @@ export class NavigationBarComponent implements OnInit {
         this.currentUrl = _.url;
       }
     });
-   // router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
   ngOnInit() {
   }
