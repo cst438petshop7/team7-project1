@@ -20,6 +20,7 @@ export class SigninPageComponent implements OnInit {
   }
 
   onClickMe() {
+    alert(this.user);
     this.data.getUserByUsername(this.user);
     // if (this.data.getUserByUsername(this.user) != null) {
 
