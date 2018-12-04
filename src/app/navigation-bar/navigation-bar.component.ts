@@ -1,6 +1,7 @@
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { getDefaultService } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -11,7 +12,7 @@ export class NavigationBarComponent implements OnInit {
   currentUrl: string;
   username = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private data: DataService) {
     router.events.subscribe(_ => {
       if (_ instanceof NavigationEnd) {
         this.currentUrl = _.url;
@@ -20,9 +21,10 @@ export class NavigationBarComponent implements OnInit {
   }
   ngOnInit() {
   }
-  changeUserName(name: string) {
-    this.username = name;
+  getUser() {
+    return this.data.changeNavUser();
   }
+
 
 }
 
