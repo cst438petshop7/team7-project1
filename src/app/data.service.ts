@@ -1,5 +1,4 @@
 import { AppComponent } from './app.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DataService {
-  constructor(private http: HttpClient, private nav: NavigationBarComponent) { }
+  constructor(private http: HttpClient) { }
   userIn = sessionStorage;
   // cartArray: Array<CartItem> = [];
   getProducts() {
