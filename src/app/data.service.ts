@@ -5,16 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
-// class CartItem {
-//   itemName: string;
-//   amount: number;
-//   price: number;
-// }
-
 
 export class DataService {
   constructor(private http: HttpClient) { }
-
+  userIn = sessionStorage;
   // cartArray: Array<CartItem> = [];
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
@@ -27,7 +21,8 @@ export class DataService {
       data => {
         if (data != null) {
           console.log(data);
-          alert('data is not null username:' + data.valueOf()['username']['username']);
+          alert('username:' + data.valueOf()['username']['username']);
+          this.userIn.setItem('key', data.valueOf()['username']['username']);
         }
       }
     );
