@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cst438Proj1';
-
 }
 
 class CartItem {

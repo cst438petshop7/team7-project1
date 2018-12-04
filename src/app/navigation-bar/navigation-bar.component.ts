@@ -1,3 +1,4 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -8,9 +9,9 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
-  username = '';
+  username = this.data.changeNavUsername();
 
-  constructor(private router: Router) {
+  constructor(private data: DataService, private router: Router) {
     router.events.subscribe(_ => {
       if (_ instanceof NavigationEnd) {
         this.currentUrl = _.url;
@@ -18,6 +19,8 @@ export class NavigationBarComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.username = this.data.changeNavUsername();
   }
 
 }
+

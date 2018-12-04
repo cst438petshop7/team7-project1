@@ -1,10 +1,11 @@
+import { AppComponent } from './app.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class DataService {
   constructor(private http: HttpClient) { }
@@ -26,6 +27,9 @@ export class DataService {
         }
       }
     );
+  }
+  changeNavUsername() {
+    return this.userIn.getItem('key');
   }
 
 }

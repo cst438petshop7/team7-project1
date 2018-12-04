@@ -33,4 +33,5 @@ export class SigninPageComponent implements OnInit {
     alert(this.loginForm.value.userName);
     this.data.getUserByUsername(this.loginForm.value.userName);
   }
+
 }
