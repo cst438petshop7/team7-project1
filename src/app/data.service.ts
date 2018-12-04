@@ -24,7 +24,7 @@ export class DataService {
           console.log(data);
           alert('username:' + data.valueOf()['username']['username']);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
-          this.nav.changeUserName(this.userIn.getItem('key'));
+          // this.nav.changeUserName(this.userIn.getItem('key'));
         }
       }
     );
