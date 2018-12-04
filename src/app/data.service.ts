@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
-class CartItem {
-  itemName: string;
-  amount: number;
-  price: number;
-}
+// class CartItem {
+//   itemName: string;
+//   amount: number;
+//   price: number;
+// }
 
 
 export class DataService {
