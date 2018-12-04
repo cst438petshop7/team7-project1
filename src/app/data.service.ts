@@ -18,7 +18,8 @@ export class DataService {
     this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
       data => {
         if (data != null) {
-          alert('data is not null');
+          console.log(data);
+          alert('data is not null username:' + data['userName']);
         }
       }
     );
