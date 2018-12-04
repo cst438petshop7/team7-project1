@@ -15,7 +15,7 @@ class CartItem {
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  cartArray: Array<CartItem> = [];
+  // cartArray: Array<CartItem> = [];
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
   }
