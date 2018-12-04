@@ -12,14 +12,14 @@ import { Observable } from 'rxjs';
 export class SigninPageComponent implements OnInit {
 
   getuser$: Object;
-  Form: FormGroup;
+  loginForm: FormGroup;
   user: string;
   pass: string;
 
   constructor(private data: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.Form = new FormGroup({
+    this.loginForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       password: new FormControl('', [
         Validators.required,
@@ -30,8 +30,8 @@ export class SigninPageComponent implements OnInit {
   }
 
   onClickMe() {
-    alert(this.Form.value.userName);
-    this.data.getUserByUsername(this.Form.value.userName);
+    alert(this.loginForm.value.userName);
+    this.data.getUserByUsername(this.loginForm.value.userName);
     // if (this.data.getUserByUsername(this.user) != null) {
 
     //   //this.router.navigateByUrl('/products');

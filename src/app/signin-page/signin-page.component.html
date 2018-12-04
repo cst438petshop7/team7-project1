@@ -3,7 +3,7 @@
   <h1>Welcome!</h1>
   <p>Please enter username and password.</p>
   <p id='user'>username:</p>
-  <form name="Form" [formGroup]="Form" (ngSubmit)="Form.valid && onClickMe()">
+  <form name="Form" formControlName="loginForm" (ngSubmit)="loginForm.valid && onClickMe()">
     <input formControlName="userName" type="text" name="firstname" value="{{user}}">
     <br>
     <p id='pass'>password:</p>
