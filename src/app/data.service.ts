@@ -4,10 +4,18 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
 
+class CartItem {
+  itemName: string;
+  amount: number;
+  price: number;
+}
+
+
+export class DataService {
   constructor(private http: HttpClient) { }
 
+  cartArray: Array<CartItem> = [];
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
   }
