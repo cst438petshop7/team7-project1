@@ -9,9 +9,9 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
-  username = this.data.changeNavUsername();
+  username = '';
 
-  constructor(private data: DataService, private router: Router) {
+  constructor(private router: Router) {
     router.events.subscribe(_ => {
       if (_ instanceof NavigationEnd) {
         this.currentUrl = _.url;
@@ -19,7 +19,9 @@ export class NavigationBarComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.username = this.data.changeNavUsername();
+  }
+  changeUserName(name: string) {
+    this.username = name;
   }
 
 }
