@@ -27,7 +27,7 @@ export class DataService {
       data => {
         if (data != null) {
           console.log(data);
-          alert('data is not null username:' + data.valueOf()['username']);
+          alert('data is not null username:' + data.valueOf()['username']['username']);
         }
       }
     );
