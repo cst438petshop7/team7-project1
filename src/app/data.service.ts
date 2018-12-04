@@ -15,10 +15,11 @@ export class DataService {
     return this.http.get('https://productsdb-service.herokuapp.com/id/' + ID);
   }
   getUserByUsername(user) {
-    alert('in data' + user);
     this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
       data => {
-        console.log(data);
+        if (data != null) {
+          alert('data is not null');
+        }
       }
     );
   }

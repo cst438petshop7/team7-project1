@@ -32,10 +32,6 @@ export class SigninPageComponent implements OnInit {
   onClickMe() {
     alert(this.loginForm.value.userName);
     this.data.getUserByUsername(this.loginForm.value.userName);
-    // if (this.data.getUserByUsername(this.user) != null) {
-
-    //   //this.router.navigateByUrl('/products');
-    // }
 
   }
 }
