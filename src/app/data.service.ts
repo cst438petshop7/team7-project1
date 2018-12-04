@@ -15,7 +15,11 @@ export class DataService {
     return this.http.get('https://productsdb-service.herokuapp.com/id/' + ID);
   }
   getUserByUsername(user) {
-    return this.http.get('https://shopdb-service.herokuapp.com/username/' + user);
+    this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
 }

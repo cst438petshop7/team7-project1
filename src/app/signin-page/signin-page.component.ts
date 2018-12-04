@@ -20,9 +20,11 @@ export class SigninPageComponent implements OnInit {
   }
 
   onClickMe() {
-    if (this.data.getUserByUsername(this.user) != null) {
-      this.router.navigateByUrl('/products');
-    }
+    this.data.getUserByUsername(this.user);
+    // if (this.data.getUserByUsername(this.user) != null) {
+
+    //   //this.router.navigateByUrl('/products');
+    // }
 
   }
 }
