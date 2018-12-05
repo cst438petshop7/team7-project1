@@ -1,6 +1,8 @@
+import { CartItem } from './../../cartitem.component';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 
 @Component({
@@ -35,6 +37,8 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 export class ProductsPageComponent implements OnInit {
 
   products$: Object;
+  addToCart: FormGroup;
+  item: CartItem;
 
   constructor(private data: DataService) { }
 
@@ -42,6 +46,15 @@ export class ProductsPageComponent implements OnInit {
     this.data.getProducts().subscribe(
       data => this.products$ = data
       );
+      this.addToCart = new FormGroup({});
   }
-
+  onClickMe(img, name, price, amount) {
+    this.item = new CartItem();
+    this.item.img = img;
+    this.item.productName = name;
+    this.item.price = price;
+    this.item.amount = amount;
+    this.data.cartArray.push(this.item);
+    console.log(this.data.cartArray);
+  }
 }

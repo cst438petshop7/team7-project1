@@ -30,7 +30,7 @@ export class SigninPageComponent implements OnInit {
   }
 
   onClickMe() {
-    alert(this.loginForm.value.userName);
+    // alert(this.loginForm.value.userName);
     this.data.getUserByUsername(this.loginForm.value.userName, this.loginForm.value.password);
   }
 
