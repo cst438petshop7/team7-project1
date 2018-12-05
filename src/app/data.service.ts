@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DataService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   userIn = sessionStorage;
   // cartArray: Array<CartItem> = [];
   getProducts() {
@@ -16,13 +17,14 @@ export class DataService {
   getProductById(ID) {
     return this.http.get('https://productsdb-service.herokuapp.com/id/' + ID);
   }
-  getUserByUsername(user) {
+  getUserByUsername(user, pass) {
     this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
       data => {
-        if (data != null) {
+        if (data != null && data.valueOf()['password']['password']) {
           console.log(data);
-          alert('username:' + data.valueOf()['username']['username']);
+          alert('successful sign in:' + data.valueOf()['username']['username']);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
+          this.router.navigateByUrl('/products');
         }
       }
     );
