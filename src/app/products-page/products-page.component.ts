@@ -48,6 +48,7 @@ export class ProductsPageComponent implements OnInit {
       data => this.products$ = data
       );
       this.addToCart = new FormGroup({});
+      console.log(JSON.parse(this.data.cart.getItem('cart')));
   }
   onClickMe(id, img, name, price, amount) {
     this.b = true;
