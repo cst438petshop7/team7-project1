@@ -48,10 +48,10 @@ export class CheckoutPageComponent implements OnInit {
   //
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
-    this.total = 0;
-    this.cartItems.forEach(element => {
-      this.total += this.product(element.amount, element.price);
-    });
+    // this.total = 0;
+    // this.cartItems.forEach(element => {
+    //   this.total += this.product(element.amount, element.price);
+    // });
     console.log(JSON.parse(this.data.cart.getItem('cart')));
     console.log(this.cartItems);
     this.formI = new FormGroup({
@@ -64,14 +64,17 @@ export class CheckoutPageComponent implements OnInit {
     return Number.parseFloat((n1 * n2).toFixed(2)) ;
   }
   totalPrice() {
+    this.cartItems.forEach(element => {
+      this.total += this.product(element.amount, element.price);
+    });
     return this.total;
   }
   somethingChanged(id, amnt) {
-    alert(amnt);
+    // alert(amnt);
     amnt = Number.parseFloat(amnt);
     this.cartItems.forEach(element => {
       if (element.id === id) {
-        alert('change worked');
+        // alert('change worked');
         element.amount = amnt;
       }
     });
