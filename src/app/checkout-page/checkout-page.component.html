@@ -7,14 +7,13 @@
           <img style="float: left;" src="{{cartItem.img}}" width="100" />
           <p id="item-name"><a href="/product-details">{{cartItem.productName}}</a></p><br style="clear: both;"/>
         </div>
-        <form [formGroup]="form" >
+
           <div id="product-right" style="float: right;">
             <div id="button-left" style="float: left;"><p style="margin: 0; margin-top: 9px;">Total Item Price: ${{product(cartItem.amount, cartItem.price)}}
-              <br/>amount of this item: <input formControlName="amount" (change)="somethingChanged(cartItem.id, form.value.amount)" id="scroller" type="number" name="points" min="1" step="1" value="{{cartItem.amount}}"></p></div>
-            <div id="button-right" style="float: right;"><button class="button">remove all from cart</button></div>
+              <br/>amount of this item: <form [formGroup]="form" ><input formControlName="amount" (change)="somethingChanged(cartItem.id, form.value.amount)" id="scroller" type="number" name="points" min="1" step="1" value="{{cartItem.amount}}"></p></div>
+            <div id="button-right" style="float: right;"><button class="button">remove all from cart</button></form></div>
             <br style="clear: both;"/>
           </div><br style="clear: both;"/>
-        </form>
     </li>
   </ul>
 

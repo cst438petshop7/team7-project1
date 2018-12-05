@@ -53,6 +53,9 @@ export class CheckoutPageComponent implements OnInit {
     });
     console.log(JSON.parse(this.data.cart.getItem('cart')));
     console.log(this.cartItems);
+    this.form = new FormGroup({
+      amount: new FormControl('', Validators.required)
+    });
   }
 
   product(n1, n2) {
