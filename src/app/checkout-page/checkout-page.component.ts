@@ -15,15 +15,15 @@ export class CheckoutPageComponent implements OnInit {
   //
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
+    this.total = 0;
+    this.cartItems.forEach(element => {
+      this.total = this.product(element.amount, element.price);
+    });
   }
   product(n1, n2) {
     return n1 * n2;
   }
   totalPrice() {
-    this.total = 0;
-    this.cartItems.forEach(element => {
-      this.total = this.product(element.amount, element.price);
-    });
     return this.total;
   }
 }
