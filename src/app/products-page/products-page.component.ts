@@ -59,15 +59,17 @@ export class ProductsPageComponent implements OnInit {
     this.item.price = price;
     this.item.amount = amount;
 
-   JSON.parse(this.data.cart.getItem('cart')).forEach(element => {
-      if (element.id === id) {
-        element.amount += amount;
-        // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
-        //   JSON.parse(this.data.cart.getItem('cart')).amount += amount;
-        // }
-        this.b = false;
-      }
-    });
+    if (JSON.parse(this.data.cart.getItem('cart')) != null) {
+      JSON.parse(this.data.cart.getItem('cart')).forEach(element => {
+        if (element.id === id) {
+          element.amount += amount;
+          // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
+          //   JSON.parse(this.data.cart.getItem('cart')).amount += amount;
+          // }
+          this.b = false;
+        }
+      });
+    }
 
     if (this.b) {
       this.data.cartArray.push(this.item);
