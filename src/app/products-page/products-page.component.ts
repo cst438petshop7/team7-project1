@@ -67,6 +67,8 @@ export class ProductsPageComponent implements OnInit {
 
     if (this.b) {
       this.data.cartArray.push(this.item);
+      this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
+      console.log(JSON.parse(this.data.cart.getItem('cart')));
     }
 
     console.log(this.data.cartArray);

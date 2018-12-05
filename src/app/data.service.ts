@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
   constructor(private http: HttpClient, private router: Router) { }
   userIn = sessionStorage;
+  cart = sessionStorage;
   cartArray: Array<CartItem> = [];
   signedIn = false;
   getProducts() {
