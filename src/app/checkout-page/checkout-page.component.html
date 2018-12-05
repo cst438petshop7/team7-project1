@@ -18,7 +18,7 @@
                 <br/>
                 amount of this item:
                 <form [formGroup]="formI" >
-                  <input formControlName="amount" (change)="somethingChanged(cartItem.id, formI.value.amount)" id="scroller" type="number" name="points" min="1" step="1" value="{{cartItem.amount}}">
+                  <input formControlName="amount" (change)="somethingChanged(cartItem.id, formI.value.amount)" id="scroller" type="number" name="points" min="1" max="cartItem.stock" step="1" value="{{cartItem.amount}}">
                 </form>
               </h3>
 

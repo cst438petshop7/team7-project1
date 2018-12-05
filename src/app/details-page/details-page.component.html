@@ -9,7 +9,7 @@
   </div>
   <div id="buying" style="float: right;">
     <h3>Price: ${{product$.price['price']}} </h3>
-    <form [formGroup]="addToCart" (ngSubmit)="addToCart.valid && onClickMe(product$.id, product$.imageUrl['imageUrl'], product$.productName['productName'], product$.price['price'])">
+    <form [formGroup]="addToCart" (ngSubmit)="addToCart.valid && onClickMe(product$.id, product$.imageUrl['imageUrl'], product$.productName['productName'], product$.price['price'], product$.stock['stock'])">
       <input formControlName="amount" id="scroller" type="number" name="points" min="1" max="{{product$.stock['stock']}}" step="1" placeholder=1>
       <br>
       <button class="button">add to cart</button>

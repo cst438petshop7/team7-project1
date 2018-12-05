@@ -51,7 +51,7 @@ export class ProductsPageComponent implements OnInit {
       this.addToCart = new FormGroup({});
       console.log(JSON.parse(this.data.cart.getItem('cart')));
   }
-  onClickMe(id, img, name, price, amount) {
+  onClickMe(id, img, name, price, amount, stock) {
     this.b = true;
     this.item = new CartItem();
     this.item.id = id;
@@ -59,6 +59,7 @@ export class ProductsPageComponent implements OnInit {
     this.item.productName = name;
     this.item.price = price;
     this.item.amount = amount;
+    this.item.stock = stock;
 
     if (JSON.parse(this.data.cart.getItem('cart')) != null) {
       this.data.cartArray  = JSON.parse(this.data.cart.getItem('cart'));

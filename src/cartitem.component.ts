@@ -5,6 +5,7 @@ export class CartItem {
   amount: number;
   price: number;
   img: string;
+  stock: number;
 
   CartItem() {
     this.id = undefined;
@@ -12,5 +13,6 @@ export class CartItem {
     this.amount = undefined;
     this.price = undefined;
     this.img = undefined;
+    this.stock = undefined;
   }
 }

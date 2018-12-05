@@ -31,13 +31,14 @@ export class DetailsPageComponent implements OnInit {
       amount: new FormControl('', Validators.required)
     });
   }
-  onClickMe(id, img, name, price) {
+  onClickMe(id, img, name, price, stock) {
     this.b = true;
     this.item = new CartItem();
     this.item.id = id;
     this.item.img = img;
     this.item.productName = name;
     this.item.price = price;
+    this.item.stock = stock;
     this.item.amount = this.addToCart.value.amount;
 
     if (JSON.parse(this.data.cart.getItem('cart')) != null) {
