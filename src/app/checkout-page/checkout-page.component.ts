@@ -68,7 +68,7 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       this.total += this.product(element.amount, element.price);
     });
-    return this.total;
+    return this.total.toFixed(2);
   }
   somethingChanged(id, amnt) {
     // alert(amnt);
