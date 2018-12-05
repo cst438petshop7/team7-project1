@@ -2,7 +2,7 @@ import { CartItem } from './../cartitem.component';
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -15,6 +15,7 @@ export class DataService {
   cart = sessionStorage;
   cartArray: Array<CartItem> = [];
   signedIn = false;
+  putHeader: HttpHeaders;
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
   }
@@ -35,6 +36,15 @@ export class DataService {
   }
   changeNavUser() {
     return this.userIn.getItem('key');
+  }
+  finalizeOrder(cartList) {
+    const putHeader = new HttpHeaders().append('Content-Type' , 'application/json');
+    putHeader.append('Access-Control-Allow-Origin', '*');
+    putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    putHeader.append('Access-Control-Allow-Credentials', 'true');
+    putHeader.append('Accept', 'application/json');
+    return this.http.put('https://finalize-order-service.herokuapp.com/finalize/{username}' + cartList, JSON.stringify({}),
+    {headers: putHeader});
   }
 
 }
