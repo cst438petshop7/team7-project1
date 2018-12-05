@@ -76,7 +76,10 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       if (element.id === id) {
         // alert('change worked');
-        element.amount = amnt;
+        if (amnt < 0) {
+          alert('minimum in cart can only be 1 press remove to remove');
+          element.amount = 1;
+        } else { element.amount = amnt; }
       }
     });
 
