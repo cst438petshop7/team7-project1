@@ -24,10 +24,10 @@ export class DataService {
       data => {
         if (data != null && data.valueOf()['password']['password'] === pass) {
           console.log(data);
-          alert('successful sign in:' + data.valueOf()['username']['username']);
+          // alert('successful sign in:' + data.valueOf()['username']['username']);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.router.navigateByUrl('/products');
-        }
+        } else { alert('invalid username or password'); }
       }
     );
   }
