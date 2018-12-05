@@ -46,7 +46,12 @@ export class DetailsPageComponent implements OnInit {
 
       this.data.cartArray.forEach(element => {
         if (element.id === id) {
-          element.amount += this.addToCart.value.amount;
+          if (this.addToCart.value.amount < 0) {
+            alert('amount cannot be less than 1\nNOTHING PLACED IN CART');
+            return;
+          } else {
+            element.amount += this.addToCart.value.amount;
+          }
           this.b = false;
         }
       });
