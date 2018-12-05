@@ -40,7 +40,7 @@ export class CheckoutPageComponent implements OnInit {
 
   constructor(private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
-  total = 0;
+  total: number;
   event = document.getElementById('scroller');
   dif: KeyValueDiffer<string, HTMLElement>;
 
@@ -52,7 +52,6 @@ export class CheckoutPageComponent implements OnInit {
       this.total += this.product(element.amount, element.price);
     });
 
-    this.dif = this.differs.find({}).create();
   }
 
   // ngDoCheck() {
@@ -65,13 +64,14 @@ export class CheckoutPageComponent implements OnInit {
   // }
 
   product(n1, n2) {
-    return n1 * n2;
+    return Number.parseFloat((n1 * n2).toPrecision(2)) ;
   }
   totalPrice() {
     return this.total;
   }
-  somethingChanged() {
+  somethingChanged(cartitem, amount) {
     alert('change worked');
+    cartitem.amount = amount;
   }
 
 }
