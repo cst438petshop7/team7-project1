@@ -55,16 +55,17 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   product(n1, n2) {
-    return Number.parseFloat((n1 * n2).toPrecision(2)) ;
+    return Number.parseFloat((n1 * n2).toFixed(2)) ;
   }
   totalPrice() {
     return this.total;
   }
-  somethingChanged(id, amount) {
+  somethingChanged(id, amnt) {
+    amnt = Number.parseFloat(amnt);
     this.cartItems.forEach(element => {
       if (element.id === id) {
         alert('change worked');
-        element.amount = amount;
+        element.amount = amnt;
       }
     });
 
