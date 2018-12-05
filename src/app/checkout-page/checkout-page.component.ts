@@ -15,5 +15,7 @@ export class CheckoutPageComponent implements OnInit {
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
   }
-
+  product(n1, n2) {
+    return n1 * n2;
+  }
 }
