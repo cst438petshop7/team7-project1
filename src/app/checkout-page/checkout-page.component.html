@@ -13,14 +13,13 @@
 
           <div id="product-right" style="float: right;">
             <div id="button-left" style="float: left;">
-              <h6 id="item-name" style="margin: 0; margin-top: 9px;">
-                Total Item Price: ${{product(cartItem.amount, cartItem.price)}}
+              <p>Total Item Price: ${{product(cartItem.amount, cartItem.price)}}
                 <br/>
                 amount of this item:
                 <form [formGroup]="formI" >
-                  <input formControlName="amount" (change)="somethingChanged(cartItem.id, form.value.amount)" id="scroller" type="number" name="points" min="1" step="1" value="{{cartItem.amount}}">
-                </form>
-              </h6>
+                  <input formControlName="amount" (change)="somethingChanged(cartItem.id, formI.value.amount)" id="scroller" type="number" name="points" min="1" step="1" value="{{cartItem.amount}}">
+                </form></p>
+
             </div>
             <div id="button-right" style="float: right;">
               <form [formGroup]="formB" >
