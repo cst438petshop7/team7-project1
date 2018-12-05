@@ -41,6 +41,7 @@ export class CheckoutPageComponent implements OnInit {
   constructor(private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
   total: number;
+  form: FormGroup;
   event = document.getElementById('scroller');
 
   //
