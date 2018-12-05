@@ -20,6 +20,7 @@ export class CheckoutPageComponent implements OnInit {
     return n1 * n2;
   }
   totalPrice() {
+    this.total = 0;
     this.cartItems.forEach(element => {
       this.total += this.product(element.amount, element.price);
     });
