@@ -50,7 +50,8 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       this.total += this.product(element.amount, element.price);
     });
-    console.log(this.data.cart);
+    console.log('cart session: ' + JSON.parse(this.data.cart.getItem('cart')));
+    console.log('cartItems: ' + this.cartItems);
   }
 
   // ngDoCheck() {
@@ -69,9 +70,10 @@ export class CheckoutPageComponent implements OnInit {
     return this.total;
   }
   somethingChanged(id, amount) {
-    alert('change worked');
+
     this.cartItems.forEach(element => {
       if (element.id === id) {
+        alert('change worked');
         element.amount = amount;
       }
     });
