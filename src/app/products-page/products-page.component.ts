@@ -59,12 +59,12 @@ export class ProductsPageComponent implements OnInit {
     this.item.price = price;
     this.item.amount = amount;
 
-    this.data.cartArray.forEach(element => {
+   JSON.parse(this.data.cart.getItem('cart')).forEach(element => {
       if (element.id === id) {
         element.amount += amount;
-        if (JSON.parse(this.data.cart.getItem('cart')) != null) {
-          JSON.parse(this.data.cart.getItem('cart')).amount += amount;
-        }
+        // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
+        //   JSON.parse(this.data.cart.getItem('cart')).amount += amount;
+        // }
         this.b = false;
       }
     });
@@ -73,11 +73,10 @@ export class ProductsPageComponent implements OnInit {
       this.data.cartArray.push(this.item);
       if (JSON.parse(this.data.cart.getItem('cart')) != null) {
         JSON.parse(this.data.cart.getItem('cart')).push(this.item);
-      }
-      // this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
+      } else { this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray)); }
       console.log(JSON.parse(this.data.cart.getItem('cart')));
     }
 
-    console.log(this.data.cartArray);
+    // console.log(this.data.cartArray);
   }
 }
