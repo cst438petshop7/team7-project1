@@ -39,6 +39,7 @@ export class ProductsPageComponent implements OnInit {
   products$: Object;
   addToCart: FormGroup;
   item: CartItem;
+  b: boolean;
 
   constructor(private data: DataService) { }
 
@@ -49,15 +50,24 @@ export class ProductsPageComponent implements OnInit {
       this.addToCart = new FormGroup({});
   }
   onClickMe(id, img, name, price, amount) {
+    this.b = true;
     this.item = new CartItem();
     this.item.id = id;
     this.item.img = img;
     this.item.productName = name;
     this.item.price = price;
     this.item.amount = amount;
-    if (this.data.cartArray.includes(this.item)) {
-      this.data.cartArray.indexOf(this.item).valueOf()['amount']++;
-    } else {this.data.cartArray.push(this.item); }
+
+    this.data.cartArray.forEach(element => {
+      if (element.id === id) {
+        element.amount += amount;
+        this.b = false;
+      }
+    });
+
+    if (this.b) {
+      this.data.cartArray.push(this.item);
+    }
 
     console.log(this.data.cartArray);
   }
