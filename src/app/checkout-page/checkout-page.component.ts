@@ -1,5 +1,7 @@
 import { CartItem } from './../../cartitem.component';
 import { Component, OnInit } from '@angular/core';
+import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -34,11 +36,14 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
     ])
   ]
 })
-export class CheckoutPageComponent implements OnInit {
+export class CheckoutPageComponent implements OnInit, DoCheck {
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
   total = 0;
+  event = document.getElementById('scroller');
+  dif: any;
+
   //
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
@@ -46,11 +51,25 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       this.total += this.product(element.amount, element.price);
     });
+
+    this.dif = this.differs.find({}).create();
   }
+
+  ngDoCheck() {
+    const change = this.dif.diff(this);
+    if (change) {
+      change.forEachChangedItem(item => {
+        console.log('item changed', item);
+      });
+    }
+  }
+
   product(n1, n2) {
     return n1 * n2;
   }
   totalPrice() {
     return this.total;
   }
+
+
 }
