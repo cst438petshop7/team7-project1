@@ -54,15 +54,6 @@ export class CheckoutPageComponent implements OnInit {
     console.log(this.cartItems);
   }
 
-  // ngDoCheck() {
-  //   const change = this.dif.diff(this);
-  //   if (change) {
-  //     change.forEachChangedItem(item => {
-  //       console.log('item changed', item);
-  //     });
-  //   }
-  // }
-
   product(n1, n2) {
     return Number.parseFloat((n1 * n2).toPrecision(2)) ;
   }
@@ -70,14 +61,15 @@ export class CheckoutPageComponent implements OnInit {
     return this.total;
   }
   somethingChanged(id, amount) {
-
     this.cartItems.forEach(element => {
       if (element.id === id) {
         alert('change worked');
         element.amount = amount;
       }
     });
+
     this.data.cart.setItem('cart', JSON.stringify(this.cartItems));
+    console.log(JSON.parse(this.data.cart.getItem('cart')));
   }
 
 }
