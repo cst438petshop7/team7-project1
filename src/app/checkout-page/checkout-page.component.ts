@@ -61,6 +61,7 @@ export class CheckoutPageComponent implements OnInit {
     return this.total;
   }
   somethingChanged(id, amnt) {
+    alert(amnt);
     amnt = Number.parseFloat(amnt);
     this.cartItems.forEach(element => {
       if (element.id === id) {
