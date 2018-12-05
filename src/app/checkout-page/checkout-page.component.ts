@@ -22,7 +22,7 @@ export class CheckoutPageComponent implements OnInit {
   totalPrice() {
     this.total = 0;
     this.cartItems.forEach(element => {
-      this.total += this.product(element.amount, element.price);
+      this.total = this.product(element.amount, element.price);
     });
     return this.total;
   }
