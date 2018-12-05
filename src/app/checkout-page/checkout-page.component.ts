@@ -42,7 +42,6 @@ export class CheckoutPageComponent implements OnInit {
   cartItems: Array<CartItem> = [];
   total: number;
   event = document.getElementById('scroller');
-  dif: KeyValueDiffer<string, HTMLElement>;
 
   //
   ngOnInit() {
@@ -51,7 +50,7 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       this.total += this.product(element.amount, element.price);
     });
-
+    console.log(this.data.cart);
   }
 
   // ngDoCheck() {
@@ -69,9 +68,14 @@ export class CheckoutPageComponent implements OnInit {
   totalPrice() {
     return this.total;
   }
-  somethingChanged(cartitem, amount) {
+  somethingChanged(id, amount) {
     alert('change worked');
-    cartitem.amount = amount;
+    this.cartItems.forEach(element => {
+      if (element.id === id) {
+        element.amount = amount;
+      }
+    });
+    this.data.cart.setItem('cart', JSON.stringify(this.cartItems));
   }
 
 }
