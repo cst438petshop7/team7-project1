@@ -26,6 +26,9 @@ export class NavigationBarComponent implements OnInit {
     this.username = this.data.changeNavUser();
     return this.data.changeNavUser();
   }
+  clickCart() {
+    this.router.navigateByUrl('/cart');
+  }
 
 
 }
