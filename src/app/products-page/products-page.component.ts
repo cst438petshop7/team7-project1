@@ -40,6 +40,7 @@ export class ProductsPageComponent implements OnInit {
   addToCart: FormGroup;
   item: CartItem;
   b: boolean;
+  cartCopy: Array<CartItem> = [];
 
   constructor(private data: DataService) { }
 
@@ -60,7 +61,10 @@ export class ProductsPageComponent implements OnInit {
     this.item.amount = amount;
 
     if (JSON.parse(this.data.cart.getItem('cart')) != null) {
-      JSON.parse(this.data.cart.getItem('cart')).forEach(element => {
+      this.data.cartArray  = JSON.parse(this.data.cart.getItem('cart'));
+    }
+
+      this.data.cartArray.forEach(element => {
         if (element.id === id) {
           element.amount += amount;
           // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
@@ -69,16 +73,15 @@ export class ProductsPageComponent implements OnInit {
           this.b = false;
         }
       });
-    }
 
     if (this.b) {
       this.data.cartArray.push(this.item);
-      if (JSON.parse(this.data.cart.getItem('cart')) != null) {
-        JSON.parse(this.data.cart.getItem('cart')).push(this.item);
-      } else { this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray)); }
-      console.log(JSON.parse(this.data.cart.getItem('cart')));
     }
-
+    this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
+    console.log(JSON.parse(this.data.cart.getItem('cart')));
+      // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
+      //   JSON.parse(this.data.cart.getItem('cart')).push(this.item);
+      // } else { this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray)); }
     // console.log(this.data.cartArray);
   }
 }
