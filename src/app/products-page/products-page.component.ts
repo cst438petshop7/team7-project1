@@ -48,8 +48,9 @@ export class ProductsPageComponent implements OnInit {
       );
       this.addToCart = new FormGroup({});
   }
-  onClickMe(img, name, price, amount) {
+  onClickMe(id, img, name, price, amount) {
     this.item = new CartItem();
+    this.item.id = id;
     this.item.img = img;
     this.item.productName = name;
     this.item.price = price;
