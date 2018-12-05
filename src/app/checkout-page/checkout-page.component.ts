@@ -44,7 +44,7 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
     this.total = 0;
     this.cartItems.forEach(element => {
-      this.total = this.product(element.amount, element.price);
+      this.total += this.product(element.amount, element.price);
     });
   }
   product(n1, n2) {
