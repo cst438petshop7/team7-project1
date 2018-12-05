@@ -36,13 +36,13 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
     ])
   ]
 })
-export class CheckoutPageComponent implements OnInit, DoCheck {
+export class CheckoutPageComponent implements OnInit {
 
   constructor(private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
   total = 0;
   event = document.getElementById('scroller');
-  dif: any;
+  dif: KeyValueDiffer<string, HTMLElement>;
 
   //
   ngOnInit() {
@@ -55,14 +55,14 @@ export class CheckoutPageComponent implements OnInit, DoCheck {
     this.dif = this.differs.find({}).create();
   }
 
-  ngDoCheck() {
-    const change = this.dif.diff(this);
-    if (change) {
-      change.forEachChangedItem(item => {
-        console.log('item changed', item);
-      });
-    }
-  }
+  // ngDoCheck() {
+  //   const change = this.dif.diff(this);
+  //   if (change) {
+  //     change.forEachChangedItem(item => {
+  //       console.log('item changed', item);
+  //     });
+  //   }
+  // }
 
   product(n1, n2) {
     return n1 * n2;
@@ -70,6 +70,8 @@ export class CheckoutPageComponent implements OnInit, DoCheck {
   totalPrice() {
     return this.total;
   }
-
+  somethingChanged() {
+    alert('change worked');
+  }
 
 }
