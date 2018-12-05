@@ -41,7 +41,8 @@ export class CheckoutPageComponent implements OnInit {
   constructor(private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
   total: number;
-  form: FormGroup;
+  formI: FormGroup;
+  formB: FormGroup;
   event = document.getElementById('scroller');
 
   //
@@ -53,9 +54,10 @@ export class CheckoutPageComponent implements OnInit {
     });
     console.log(JSON.parse(this.data.cart.getItem('cart')));
     console.log(this.cartItems);
-    this.form = new FormGroup({
+    this.formI = new FormGroup({
       amount: new FormControl('', Validators.required)
     });
+    this.formB = new FormGroup({});
   }
 
   product(n1, n2) {
