@@ -13,6 +13,7 @@ export class DataService {
   constructor(private http: HttpClient, private router: Router) { }
   userIn = sessionStorage;
   cartArray: Array<CartItem> = [];
+  signedIn = false;
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
   }

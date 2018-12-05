@@ -10,7 +10,7 @@ import { getDefaultService } from 'selenium-webdriver/chrome';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
-  username = '';
+  username = undefined;
 
   constructor(private router: Router, private data: DataService) {
     router.events.subscribe(_ => {
@@ -21,10 +21,14 @@ export class NavigationBarComponent implements OnInit {
   }
   ngOnInit() {
   }
+
   getUser() {
+    this.username = this.data.changeNavUser();
     return this.data.changeNavUser();
   }
 
 
 }
-
+// if (!this.data.signedIn) {
+//   document.getElementById('cartbutton').setAttribute('style', 'visibility: hidden;');
+// } else { document.getElementById('cartbutton').setAttribute('style', 'visibility: visible'); }
