@@ -13,17 +13,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPageComponent implements OnInit {
   product$: Object;
+  param: string;
   addToCart: FormGroup;
   item: CartItem;
   b: boolean;
   cartCopy: Array<CartItem> = [];
 
   constructor(private route: ActivatedRoute, private data: DataService) {
-     this.route.params.subscribe( params => this.product$ = params.id );
+     this.route.params.subscribe( params => this.param = params.id );
   }
 
   ngOnInit() {
-    this.data.getProductById(this.product$).subscribe(
+    this.data.getProductById(this.param).subscribe(
       data => this.product$ = data
     );
     this.addToCart = new FormGroup({
