@@ -11,7 +11,7 @@ export class CheckoutPageComponent implements OnInit {
 
   constructor(private data: DataService) { }
   cartItems: Array<CartItem> = [];
-  total: number;
+  total = 0;
   //
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
