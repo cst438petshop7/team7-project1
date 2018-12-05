@@ -55,7 +55,10 @@ export class ProductsPageComponent implements OnInit {
     this.item.productName = name;
     this.item.price = price;
     this.item.amount = amount;
-    this.data.cartArray.push(this.item);
+    if (this.data.cartArray.includes(this.item)) {
+      this.data.cartArray.indexOf(this.item).valueOf()['amount']++;
+    } else {this.data.cartArray.push(this.item); }
+
     console.log(this.data.cartArray);
   }
 }
