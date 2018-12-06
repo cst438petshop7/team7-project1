@@ -60,6 +60,7 @@ export class DataService {
     putHeader.append('Accept', 'application/json');
     this.fin = new FinalCart();
     this.cartArray = JSON.parse(this.cart.getItem('cart'));
+    this.finalCart.splice(0, this.finalCart.length - 1);
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
       this.fin.id = element.id;
@@ -68,8 +69,9 @@ export class DataService {
     });
 
     console.log(JSON.stringify(this.finalCart));
-    return this.http.post('https://finalize-order-service.herokuapp.com/finalize/' + this.userIn.getItem('key'),
-    this.finalCart, {headers: putHeader});
+    const url = 'https://finalize-order-service.herokuapp.com/finalize/' + this.userIn.getItem('key');
+    console.log(url);
+    return this.http.post(url, this.finalCart, {headers: putHeader});
     sessionStorage.removeItem('cart');
     sessionStorage.removeItem('key');
     sessionStorage.removeItem('key2');
