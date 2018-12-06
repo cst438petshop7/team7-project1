@@ -107,8 +107,8 @@ export class CheckoutPageComponent implements OnInit {
     this.modal.style.display = 'none';
   }
   finalize() {
-    sessionStorage.clear();
-    this.router.navigateByUrl('/');
     this.data.finalizeOrder();
+    this.router.navigateByUrl('/');
+    return;
   }
 }

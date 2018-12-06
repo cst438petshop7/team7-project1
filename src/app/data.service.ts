@@ -67,8 +67,10 @@ export class DataService {
     });
 
     console.log(JSON.stringify(this.finalCart));
-    return this.http.put('https://finalize-order-service.herokuapp.com/finalize/' +
-    this.userIn.getItem('key') + this.finalCart, JSON.stringify({}), {headers: putHeader});
+    this.http.put('https://finalize-order-service.herokuapp.com/finalize/' +
+    this.userIn.getItem('key'), JSON.stringify(this.finalCart), {headers: putHeader});
+    sessionStorage.clear();
+    return;
   }
   getUserSess() {
     return this.userIn.getItem('key');
