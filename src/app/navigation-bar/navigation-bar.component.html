@@ -7,10 +7,28 @@
       </div>
 
       <div id="product-right" style="float: right;">
-        <div id="username" style="float: left;"><p style="margin: 0;">{{getUser()}}</p></div>
+        <div (click)="showModal()" id="username" style="float: left;"><p style="margin: 0;">{{getUser()}}</p></div>
         <div *ngIf="getUserSes()"  (click)="clickCart()" id="cartbutton" style="float: right;"><i class="material-icons">shopping_cart</i></div>
           <br style="clear: both;"/>
       </div><br style="clear: both;"/>
     </li>
   </ul>
 </nav>
+
+ <!-- MODAL -->
+ <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="hideModal()" class="close">&times;</span>
+      <br>
+      <h2>User Information</h2>
+      <div style="float: left; text-align: left;">
+        userInfo
+      </div>
+      <br style="clear: both;">
+      <br>
+      <button (click)="logout()" id="logout">logout</button>
+      <br>
+    </div>
+
+  </div>

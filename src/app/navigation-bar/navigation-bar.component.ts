@@ -10,6 +10,7 @@ import { getDefaultService } from 'selenium-webdriver/chrome';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
+  modal: HTMLElement;
   username = undefined;
 
   constructor(private router: Router, private data: DataService) {
@@ -33,6 +34,22 @@ export class NavigationBarComponent implements OnInit {
 
   getUserSes() {
     return this.data.getUserSess();
+  }
+  showModal() {
+    this.modal.style.display = 'block';
+  }
+  hideModal() {
+    this.modal.style.display = 'none';
+  }
+  logout() {
+    this.data.finalCart = [];
+    this.data.cartArray = [];
+    this.data.cart.removeItem('cart');
+    this.data.userIn.removeItem('key');
+    this.data.userID.removeItem('key2');
+    this.data.userCred.removeItem('key3');
+    sessionStorage.clear();
+    sessionStorage.clear();
   }
 
 }

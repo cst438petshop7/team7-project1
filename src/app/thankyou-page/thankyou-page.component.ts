@@ -24,6 +24,8 @@ export class ThankyouPageComponent implements OnInit {
         alert('order cancelled');
         sessionStorage.removeItem('cart');
         sessionStorage.removeItem('cart');
+        this.data.finalCart = [];
+        this.data.cartArray = [];
         this.router.navigateByUrl('/products');
       }
     );
@@ -33,6 +35,8 @@ export class ThankyouPageComponent implements OnInit {
     alert('order confirmed');
     sessionStorage.removeItem('cart');
     sessionStorage.removeItem('cart');
+    this.data.finalCart = [];
+    this.data.cartArray = [];
     this.router.navigateByUrl('/products');
   }
 
