@@ -1,12 +1,14 @@
 <div>
   <h1>Thank you for your purchase!</h1>
-  <h5>transaction successful</h5>
+  <h3>transaction successful</h3>
   <div id="itemsPurchased">
-    <h4>purchased items:</h4>
+    <h2>purchased items:</h2>
     <ul id="items" style="padding-top: 0px;">
       <li *ngFor= "let cartItem of cartItems">
           <img src="{{cartItem.img}}" width="100" />
       </li>
     </ul>
+    <button id="conf">confirm</button>
+    <button>cancel order</button>
   </div>
 </div>

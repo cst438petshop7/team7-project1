@@ -16,3 +16,30 @@ img{
 li{
   list-style-type: none;
 }
+button {
+  background-color: #ff5e5e;
+  border:1.5px solid #126392;
+  color: rgb(255, 255, 255);
+  margin-top:1px;
+  margin-left: 5px;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.5s;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 1px;
+  cursor: pointer;
+  width: 120px;
+}
+button:hover {
+  background-color: #126392;
+}
+
+#conf {
+  background-color: #1fadff;
+  margin-right: 5px;
+}
+#conf:hover {
+  background-color: #126392;
+}
