@@ -31,6 +31,10 @@ export class NavigationBarComponent implements OnInit {
     this.router.navigateByUrl('/cart');
   }
 
+  getUserSes() {
+    return this.data.getUserSess();
+  }
+
 }
 // if (!this.data.signedIn) {
 //   document.getElementById('cartbutton').setAttribute('style', 'visibility: hidden;');
