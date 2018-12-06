@@ -43,15 +43,16 @@
 
       <div class="modal-content">
         <span (click)="hideModal()" class="close">&times;</span>
+        <br>
         <h2>payment information and confirm purchase</h2>
-        <div style="float: left;">
+        <div style="float: left; text-align: left;">
           <p>name on card:<br>
           <input type="text" name="cardname" placeholder="jimmy dean"><br></p>
           <p>card number:<br>
           <input type="text" name="cardnum" placeholder="4683 7899 3232 1225"></p>
         </div>
 
-        <div style="float: right;">
+        <div style="float: right; text-align: left;">
           <p>cvv:<br>
           <input type="text" name="cvv" pattern="[0-9]{3}" title="CVV" placeholder="357"><br></p>
           <p>expiration (month / year):<br>
