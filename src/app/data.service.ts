@@ -57,7 +57,7 @@ export class DataService {
     putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     putHeader.append('Access-Control-Allow-Credentials', 'true');
     putHeader.append('Accept', 'application/json');
-
+    this.fin = new FinalCart();
     this.cartArray = JSON.parse(this.cart.getItem('cart'));
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
