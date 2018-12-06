@@ -24,6 +24,7 @@ export class NavigationBarComponent implements OnInit {
   }
   ngOnInit() {
     console.log(this.data.userIn.getItem('key'));
+    this.modal = document.getElementById('myModal2');
   }
 
   getUser() {
@@ -54,6 +55,7 @@ export class NavigationBarComponent implements OnInit {
     this.data.userCred.removeItem('key3');
     sessionStorage.clear();
     sessionStorage.clear();
+    this.router.navigateByUrl('/');
   }
 
 }
