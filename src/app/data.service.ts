@@ -1,3 +1,4 @@
+import { FinalCart } from './../finalcart.component';
 import { CartItem } from './../cartitem.component';
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -16,7 +17,9 @@ export class DataService {
   userCred = sessionStorage;
   cart = sessionStorage;
   cartArray: Array<CartItem> = [];
+  finalCart: Array<FinalCart> = [];
   signedIn = false;
+  fin: FinalCart;
   putHeader: HttpHeaders;
   getProducts() {
     return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
@@ -32,8 +35,8 @@ export class DataService {
           console.log(data);
           // alert('successful sign in:' + data.valueOf()['username']['username']);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
-          this.userID.setItem('key', data.valueOf()['id']);
-          this.userCred.setItem('key', data.valueOf()['credit']['credit']);
+          this.userID.setItem('key2', data.valueOf()['id']);
+          this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
           this.router.navigateByUrl('/products');
         } else { alert('invalid username or password'); }
       }
@@ -49,10 +52,17 @@ export class DataService {
     putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     putHeader.append('Access-Control-Allow-Credentials', 'true');
     putHeader.append('Accept', 'application/json');
+    this.cartArray = JSON.parse(this.cart.getItem('cart'));
+    this.cartArray.forEach(element => {
+      this.fin.id = element.id;
+      this.fin.amount = element.amount;
+      this.finalCart.push(this.fin);
+    });
+    console.log(JSON.stringify(this.finalCart));
     this.http.put('https://finalize-order-service.herokuapp.com/finalize/' +
     this.userIn.getItem('key') +
     '/' +
-    JSON.stringify(this.cart.getItem('cart')),
+    JSON.stringify(this.finalCart),
     {headers: putHeader});
     sessionStorage.clear();
     this.router.navigateByUrl('/');

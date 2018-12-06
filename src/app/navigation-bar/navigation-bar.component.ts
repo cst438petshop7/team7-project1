@@ -20,6 +20,7 @@ export class NavigationBarComponent implements OnInit {
     });
   }
   ngOnInit() {
+    console.log(this.data.userIn.getItem('key'));
   }
 
   getUser() {
@@ -29,7 +30,6 @@ export class NavigationBarComponent implements OnInit {
   clickCart() {
     this.router.navigateByUrl('/cart');
   }
-
 
 }
 // if (!this.data.signedIn) {
