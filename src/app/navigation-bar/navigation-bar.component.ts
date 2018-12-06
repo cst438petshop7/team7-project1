@@ -11,7 +11,9 @@ import { getDefaultService } from 'selenium-webdriver/chrome';
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
   modal: HTMLElement;
-  username = undefined;
+  username;
+  cred;
+  id;
 
   constructor(private router: Router, private data: DataService) {
     router.events.subscribe(_ => {
@@ -26,6 +28,8 @@ export class NavigationBarComponent implements OnInit {
 
   getUser() {
     this.username = this.data.changeNavUser();
+    this.id = this.data.userID.getItem('key2');
+    this.cred = this.data.userCred.getItem('key3');
     return this.data.changeNavUser();
   }
   clickCart() {
