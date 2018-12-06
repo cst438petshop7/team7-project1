@@ -35,7 +35,7 @@
   </ul>
 
   <div id="total_price" style="float: right; margin-right: 22px;"><h2>Total Price: ${{totalPrice()}}</h2>
-  <button *ngIf="Number(totalPrice()) != 0" (click)="showModal()" class="button2">complete order</button></div>
+  <button *ngIf="totalPrice() != ''" (click)="showModal()" class="button2">complete order</button></div>
 
   <!-- MODAL -->
   <div id="myModal" class="modal">
