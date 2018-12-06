@@ -35,5 +35,16 @@
   </ul>
 
   <div id="total_price" style="float: right; margin-right: 22px;"><h2>Total Price: ${{totalPrice()}}</h2>
-  <button class="button2">complete order</button></div>
+  <button (click)="showModal()" class="button2">complete order</button></div>
+
+  <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span (click)="hideModal()" class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+
+    </div>
+
 </div>

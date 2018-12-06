@@ -43,7 +43,8 @@ export class CheckoutPageComponent implements OnInit {
   total: number;
   formI: FormGroup;
   formB: FormGroup;
-  event = document.getElementById('scroller');
+  modal = document.getElementById('myModal');
+
 
   //
   ngOnInit() {
@@ -85,6 +86,12 @@ export class CheckoutPageComponent implements OnInit {
 
     this.data.cart.setItem('cart', JSON.stringify(this.cartItems));
     console.log(JSON.parse(this.data.cart.getItem('cart')));
+  }
+  showModal() {
+    this.modal.style.display = 'block';
+  }
+  hideModal() {
+    this.modal.style.display = 'none';
   }
 
 }
