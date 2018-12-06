@@ -43,7 +43,7 @@ export class CheckoutPageComponent implements OnInit {
   total: number;
   formI: FormGroup;
   formB: FormGroup;
-  modal = document.getElementById('myModal');
+  modal: HTMLElement;
 
 
   //
@@ -59,6 +59,7 @@ export class CheckoutPageComponent implements OnInit {
       amount: new FormControl('', Validators.required)
     });
     this.formB = new FormGroup({});
+    this.modal = document.getElementById('myModal');
   }
 
   product(n1, n2) {
