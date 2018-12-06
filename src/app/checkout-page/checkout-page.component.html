@@ -39,12 +39,17 @@
 
   <div id="myModal" class="modal">
       <!-- Modal content -->
-      <span (click)="hideModal()" class="close">&times;</span>
+
       <div class="modal-content">
-          <input type="text" name="cardname" placeholder="firsname lastname">
-          <input type="text" name="cardnum" placeholder="0000 1111 2222 3333">
-          <input type="text" name="cvv" pattern="[0-9]{3}" title="CVV" placeholder="123">
-          <input type="month" name="expdate">
+        <span (click)="hideModal()" class="close">&times;</span>
+        name on card:<br>
+        <input type="text" name="cardname" placeholder="jimmy dean"><br>
+        card number:<br>
+        <input type="text" name="cardnum" placeholder="4683 7899 3232 1225"><br>
+        cvv:<br>
+        <input type="text" name="cvv" pattern="[0-9]{3}" title="CVV" placeholder="357><br>
+        expiration (month / year):<br>
+        <input type="month" name="expdate"><br>
       </div>
 
     </div>
