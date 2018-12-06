@@ -7,7 +7,7 @@
       </div>
 
       <div id="product-right" style="float: right;">
-        <div id="username" style="float: left;"><p (click)="showModal()" style="margin: 0;">{{getUser()}}</p></div>
+        <div id="username" style="float: left;"><p (click)="showModal2()" style="margin: 0;">{{getUser()}}</p></div>
         <div *ngIf="getUserSes()"  (click)="clickCart()" id="cartbutton" style="float: right;"><i class="material-icons">shopping_cart</i></div>
           <br style="clear: both;"/>
       </div><br style="clear: both;"/>
@@ -19,7 +19,7 @@
  <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <span (click)="hideModal()" class="close">&times;</span>
+      <span (click)="hideModal2()" class="close">&times;</span>
       <br>
       <h2>User Information</h2>
       <div style="float: left; text-align: left;">
