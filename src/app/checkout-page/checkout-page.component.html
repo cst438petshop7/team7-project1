@@ -38,11 +38,13 @@
   <button (click)="showModal()" class="button2">complete order</button></div>
 
   <div id="myModal" class="modal">
-
       <!-- Modal content -->
+      <span (click)="hideModal()" class="close">&times;</span>
       <div class="modal-content">
-        <span (click)="hideModal()" class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+          <input type="text" name="cardname" placeholder="firsname lastname">
+          <input type="text" name="cardnum" placeholder="0000 1111 2222 3333">
+          <input type="text" name="cvv" pattern="[0-9]{3}" title="CVV" placeholder="123">
+          <input type="month" name="expdate">
       </div>
 
     </div>
