@@ -105,5 +105,7 @@ export class CheckoutPageComponent implements OnInit {
   hideModal() {
     this.modal.style.display = 'none';
   }
-
+  finalize() {
+    this.data.finalizeOrder();
+  }
 }
