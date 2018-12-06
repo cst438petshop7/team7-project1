@@ -2,6 +2,7 @@ import { FinalCart } from './../finalcart.component';
 import { CartItem } from './../cartitem.component';
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
+import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -56,7 +57,7 @@ export class DataService {
     putHeader.append('Access-Control-Allow-Origin', '*');
     putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     putHeader.append('Access-Control-Allow-Credentials', 'true');
-    putHeader.append('Content-Type', 'application/json');
+    putHeader.append('Accept', 'application/json');
     this.fin = new FinalCart();
     this.cartArray = JSON.parse(this.cart.getItem('cart'));
     console.log(this.cartArray);
@@ -68,7 +69,7 @@ export class DataService {
 
     console.log(JSON.stringify(this.finalCart));
     return this.http.post('https://finalize-order-service.herokuapp.com/finalize/' + this.userIn.getItem('key'),
-    JSON.stringify(this.finalCart), {headers: putHeader});
+    this.finalCart, {headers: putHeader});
     sessionStorage.removeItem('cart');
     sessionStorage.removeItem('key');
     sessionStorage.removeItem('key2');
