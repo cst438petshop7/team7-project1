@@ -1,4 +1,6 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
+import { CartItem } from '../../cartitem.component';
 
 @Component({
   selector: 'app-thankyou-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThankyouPageComponent implements OnInit {
 
-  constructor() { }
+  cartItems: Array<CartItem> = [];
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
   }
 
 }
