@@ -60,7 +60,7 @@ export class DataService {
     putHeader.append('Accept', 'application/json');
     this.fin = new FinalCart();
     this.cartArray = JSON.parse(this.cart.getItem('cart'));
-    this.finalCart.splice(0, this.finalCart.length - 1);
+    this.finalCart = [];
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
       this.fin.id = element.id;
@@ -76,8 +76,31 @@ export class DataService {
     sessionStorage.removeItem('key');
     sessionStorage.removeItem('key2');
     sessionStorage.removeItem('key3');
-    return;
   }
+
+  cancelOrder() {
+    const putHeader = new HttpHeaders().append('Content-Type' , 'application/json');
+    putHeader.append('Access-Control-Allow-Origin', '*');
+    putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    putHeader.append('Access-Control-Allow-Credentials', 'true');
+    putHeader.append('Accept', 'application/json');
+    this.fin = new FinalCart();
+    this.cartArray = JSON.parse(this.cart.getItem('cart'));
+    this.finalCart = [];
+    console.log(this.cartArray);
+    this.cartArray.forEach(element => {
+      this.fin.id = element.id;
+      this.fin.amount = element.amount;
+      this.finalCart.push(this.fin);
+    });
+
+
+    console.log(JSON.stringify(this.finalCart));
+    const url = 'https://finalize-order-service.herokuapp.com/reverse/' + this.userIn.getItem('key');
+    console.log(url);
+    return this.http.post(url, this.finalCart, {headers: putHeader});
+  }
+
   getUserSess() {
     return this.userIn.getItem('key');
   }

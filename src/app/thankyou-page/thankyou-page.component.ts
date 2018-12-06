@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from '../../cartitem.component';
@@ -11,10 +12,19 @@ export class ThankyouPageComponent implements OnInit {
 
   cartItems: Array<CartItem> = [];
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private router: Router) { }
 
   ngOnInit() {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
+  }
+  cancel() {
+    this.data.finalizeOrder().subscribe(
+      response => console.log(response),
+      next => {
+        alert('order cancelled');
+        this.router.navigateByUrl('/products');
+      }
+    );
   }
 
 }
