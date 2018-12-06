@@ -1,11 +1,15 @@
+
 <div id="sign-in">
   <h1>Welcome!</h1>
   <p>Please enter username and password.</p>
   <p id='user'>username:</p>
-  <input type="text" name="firstname" value="">
-  <br>
-  <p id='pass'>password:</p>
-  <input type="text" name="lastname" value="">
-  <br><br>
-  <button class="button">login</button>
+  <form name="Form" [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onClickMe()">
+    <input formControlName="userName" type="text" name="firstname" value="{{user}}">
+    <br>
+    <p id='pass'>password:</p>
+    <input formControlName="password" type="text" name="lastname" value="{{pass}}">
+    <br><br>
+    <button class="button" (click)="onClickMe()">login</button>
+  </form>
+
 </div>

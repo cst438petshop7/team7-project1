@@ -1,5 +1,7 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { getDefaultService } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,16 +10,32 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavigationBarComponent implements OnInit {
   currentUrl: string;
+  username = undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private data: DataService) {
     router.events.subscribe(_ => {
       if (_ instanceof NavigationEnd) {
         this.currentUrl = _.url;
       }
     });
-   // router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
   ngOnInit() {
+    console.log(this.data.userIn.getItem('key'));
+  }
+
+  getUser() {
+    this.username = this.data.changeNavUser();
+    return this.data.changeNavUser();
+  }
+  clickCart() {
+    this.router.navigateByUrl('/cart');
+  }
+
+  getUserSes() {
+    return this.data.getUserSess();
   }
 
 }
+// if (!this.data.signedIn) {
+//   document.getElementById('cartbutton').setAttribute('style', 'visibility: hidden;');
+// } else { document.getElementById('cartbutton').setAttribute('style', 'visibility: visible'); }

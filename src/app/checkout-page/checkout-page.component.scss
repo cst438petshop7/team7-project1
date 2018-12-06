@@ -39,11 +39,16 @@ li{
   font-size: 25px;
   text-decoration: underline;
 }
+#item-info{
+  font-weight:normal;
+  text-emphasis: none;
+  text-decoration: none;
+}
 #product-left{
   width: 50%;
 }
 #product-right{
-  width: 310px;
+  width: 365px;
   margin-right: 20px;
 }
 
@@ -65,13 +70,84 @@ button {
 button:hover {
   background-color: #1fadff;
 }
-#product-right{
+.button2 {
+  background-color: #00395a;
+  border:3px solid #1fadff;
+  color: rgb(255, 255, 255);
+}
+.button2:hover {
+  background-color: #1fadff;
+}
+
+ #confirm {
+  background-color: #1fadff;
+  border:3px solid #00395a;
+  color: rgb(255, 255, 255);
+
+}
+#confirm:hover {
+  background-color: #1fadff;
+}
+
+#cancel {
+  background-color: #ff5e5e;
+  border:3px solid #1fadff;
+  color: rgb(255, 255, 255);
+
+}
+#cancel:hover {
+  background-color: #1fadff;
+}
+
+#product-right {
   margin-top: 25px;
   text-align: right;
 }
-button-left{
+#button-left {
   margin-right: 15px;
   margin-top: 25px;
+}
+a{
+  color: black;
+  // text-decoration: none;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  margin-top: 250px;
+  width: 30%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 

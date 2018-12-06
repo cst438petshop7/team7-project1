@@ -1,47 +1,70 @@
 <div id="products">
   <h2>Cart Items</h2>
   <hr>
-  <ul id="products" style="padding-top: 0px;">
-    <li>
+  <ul [@listStagger]="cartItems" id="products" style="padding-top: 0px;">
+    <li *ngFor= "let cartItem of cartItems">
         <div id="product-left" style="float: left;">
-          <img style="float: left;" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350" width="100" />
-          <p id="item-name"><a href="/product-details">Item Name</a></p><br style="clear: both;"/>
+          <img style="float: left;" src="{{cartItem.img}}" width="100" />
+          <p id="item-name">
+            <a href="/product-details">{{cartItem.productName}}</a>
+          </p>
+          <br style="clear: both;"/>
         </div>
 
-        <div id="product-right" style="float: right;">
-          <div id="button-left" style="float: left;"><p style="margin: 0; margin-top: 9px;">Total Item Price: $0.00<br/>items in cart: <input id="scroller" type="number" name="points" min="1" step="1"></p></div>
-          <div id="button-right" style="float: right;"><button class="button">remove all from cart</button></div>
+          <div id="product-right" style="float: right;">
+            <div id="button-left" style="float: left;">
+              <h3 id="item-info" style="margin: 0; margin-top: 9px;">
+                Total Item Price: <strong>${{product(cartItem.amount, cartItem.price)}}</strong>
+                <br/>
+                amount of this item:
+                <form [formGroup]="formI" >
+                  <input formControlName="amount" (change)="somethingChanged(cartItem.id, formI.value.amount)" id="scroller" type="number" name="points" min="1" max="cartItem.stock" step="1" value="{{cartItem.amount}}">
+                </form>
+              </h3>
+
+            </div>
+            <div id="button-right" style="float: right;">
+              <form [formGroup]="formB" >
+                <button (click)="removeFromCart(cartItem.id)" class="button">remove all from cart</button>
+              </form>
+            </div>
+            <br style="clear: both;"/>
+          </div>
           <br style="clear: both;"/>
-        </div><br style="clear: both;"/>
     </li>
-
-    <li>
-      <div id="product-left" style="float: left;">
-        <img style="float: left;" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350" width="100" />
-        <p id="item-name"><a href="/product-details">Item Name</a></p><br style="clear: both;"/>
-      </div>
-
-      <div id="product-right" style="float: right;">
-        <div id="button-left" style="float: left;"><p style="margin: 0; margin-top: 9px;">Total Item Price: $0.00<br/>items in cart: <input id="scroller" type="number" name="points" min="1" step="1"></p></div>
-        <div id="button-right" style="float: right;"><button class="button">remove all from cart</button></div>
-        <br style="clear: both;"/>
-      </div><br style="clear: both;"/>
-  </li>
-
-  <li>
-    <div id="product-left" style="float: left;">
-      <img style="float: left;" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350" width="100" />
-      <p id="item-name"><a href="/product-details">Item Name</a></p><br style="clear: both;"/>
-    </div>
-
-    <div id="product-right" style="float: right;">
-      <div id="button-left" style="float: left;"><p style="margin: 0; margin-top: 9px;">Total Item Price: $0.00<br/>items in cart: <input id="scroller" type="number" name="points" min="1" step="1"></p></div>
-      <div id="button-right" style="float: right;"><button class="button">remove all from cart</button></div>
-      <br style="clear: both;"/>
-    </div><br style="clear: both;"/>
-  </li>
-
   </ul>
 
-  <div id="total_price" style="float: right; margin-right: 22px;"><h3>Total Price: $0.00</h3></div>
+  <div id="total_price" style="float: right; margin-right: 22px;"><h2>Total Price: ${{totalPrice()}}</h2>
+  <button (click)="showModal()" class="button2">complete order</button></div>
+
+  <!-- MODAL -->
+  <div id="myModal" class="modal">
+      <!-- Modal content -->
+
+      <div class="modal-content">
+        <span (click)="hideModal()" class="close">&times;</span>
+        <br>
+        <h2>payment information and confirm purchase</h2>
+        <div style="float: left; text-align: left;">
+          <p>name on card:<br>
+          <input type="text" name="cardname" placeholder="jimmy dean"><br></p>
+          <p>card number:<br>
+          <input type="text" name="cardnum" placeholder="4683 7899 3232 1225"></p>
+        </div>
+
+        <div style="float: right; text-align: left;">
+          <p>cvv:<br>
+          <input type="text" name="cvv" pattern="[0-9]{3}" title="CVV" placeholder="357"><br></p>
+          <p>expiration (month / year):<br>
+          <input type="month" name="expdate"></p>
+        </div>
+        <br style="clear: both;">
+        <br>
+        <button (click)="finalize()" id="confirm" style="margin-right: 5px;">confirm</button>
+        <button id="cancel" style="margin-left: 5px;">cancel</button>
+        <br>
+      </div>
+
+    </div>
+
 </div>
