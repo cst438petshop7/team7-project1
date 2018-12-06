@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Session } from 'inspector';
 
 
 @Injectable({
@@ -69,7 +70,10 @@ export class DataService {
     console.log(JSON.stringify(this.finalCart));
     this.http.put('https://finalize-order-service.herokuapp.com/finalize/' +
     this.userIn.getItem('key'), JSON.stringify(this.finalCart), {headers: putHeader});
-    sessionStorage.clear();
+    sessionStorage.removeItem('cart');
+    sessionStorage.removeItem('key');
+    sessionStorage.removeItem('key2');
+    sessionStorage.removeItem('key3');
     return;
   }
   getUserSess() {
