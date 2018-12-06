@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CartItem } from './../../cartitem.component';
 import { Component, OnInit } from '@angular/core';
 import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
@@ -38,7 +39,7 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 })
 export class CheckoutPageComponent implements OnInit {
 
-  constructor(private data: DataService, private differs: KeyValueDiffers) { }
+  constructor(private router: Router, private data: DataService, private differs: KeyValueDiffers) { }
   cartItems: Array<CartItem> = [];
   total: number;
   formI: FormGroup;
@@ -106,6 +107,8 @@ export class CheckoutPageComponent implements OnInit {
     this.modal.style.display = 'none';
   }
   finalize() {
+    sessionStorage.clear();
+    this.router.navigateByUrl('/');
     this.data.finalizeOrder();
   }
 }
