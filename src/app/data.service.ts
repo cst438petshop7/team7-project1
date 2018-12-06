@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
   userIn = sessionStorage;
   userID = sessionStorage;
   userCred = sessionStorage;
@@ -52,15 +53,14 @@ export class DataService {
   }
 
   finalizeOrder() {
-    const putHeader = new Headers({'Content-Type' : 'application/json',
-                                   'Access-Control-Allow-Origin': '*',
-                                   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                                   'Access-Control-Allow-Credentials': 'true',
-                                   'Accept': 'application/json'});
-
+    const putHeader = new HttpHeaders().append('Content-Type' , 'application/json');
+    putHeader.append('Access-Control-Allow-Origin', '*');
+    putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    putHeader.append('Access-Control-Allow-Credentials', 'true');
+    putHeader.append('Accept', 'application/json');
     this.fin = new FinalCart();
     this.cartArray = JSON.parse(this.cart.getItem('cart'));
-    this.finalCart = [];
+    this.finalCart.splice(0, this.finalCart.length - 1);
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
       this.fin.id = element.id;
