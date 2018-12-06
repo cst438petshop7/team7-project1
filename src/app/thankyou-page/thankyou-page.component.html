@@ -3,8 +3,8 @@
   <h5>transaction successful</h5>
   <div id="itemsPurchased">
     <h4>purchased items:</h4>
-    <ul [@listStagger]="cartItems" id="products" style="padding-top: 0px;">
-      <li>
+    <ul id="items" style="padding-top: 0px;">
+      <li *ngFor= "let cartItem of cartItems">
           <img src="{{cartItem.img}}" width="100" />
       </li>
     </ul>
