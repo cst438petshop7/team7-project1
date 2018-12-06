@@ -78,10 +78,21 @@ export class CheckoutPageComponent implements OnInit {
     this.cartItems.forEach(element => {
       if (element.id === id) {
         // alert('change worked');
-        if (amnt < 0) {
+        if (amnt <= 0) {
           alert('minimum in cart can only be 1 press remove to remove');
           element.amount = 1;
         } else { element.amount = amnt; }
+      }
+    });
+
+    this.data.cart.setItem('cart', JSON.stringify(this.cartItems));
+    console.log(JSON.parse(this.data.cart.getItem('cart')));
+  }
+  removeFromCart(id) {
+    this.cartItems.forEach(element => {
+      if (element.id === id) {
+        const val = this.cartItems.indexOf(element);
+        this.cartItems.splice(val, 1);
       }
     });
 

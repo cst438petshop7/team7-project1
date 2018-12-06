@@ -25,7 +25,7 @@
             </div>
             <div id="button-right" style="float: right;">
               <form [formGroup]="formB" >
-                <button class="button">remove all from cart</button>
+                <button (click)="removeFromCart(cartItem.id)" class="button">remove all from cart</button>
               </form>
             </div>
             <br style="clear: both;"/>
