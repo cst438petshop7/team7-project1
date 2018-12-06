@@ -22,9 +22,18 @@ export class ThankyouPageComponent implements OnInit {
       response => console.log(response),
       next => {
         alert('order cancelled');
+        sessionStorage.removeItem('cart');
+        sessionStorage.removeItem('cart');
         this.router.navigateByUrl('/products');
       }
     );
+  }
+
+  confirm() {
+    alert('order confirmed');
+    sessionStorage.removeItem('cart');
+    sessionStorage.removeItem('cart');
+    this.router.navigateByUrl('/products');
   }
 
 }

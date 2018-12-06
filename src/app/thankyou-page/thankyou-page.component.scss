@@ -1,6 +1,5 @@
 div{
-  // position: fixed;
-  top: 200px;
+  padding-top: 200px;
   left: 32%;
   right:32%;
   text-align: center;
@@ -9,7 +8,10 @@ img{
   width:200px;
 }
 #itemsPurchased{
-  margin-top: 150px;
+  margin-top: 0px;
+  padding-top: 5px;
+  margin-left: 30%;
+  margin-right: 30%;
   background-color: white;
   border-radius: 15px;
 }
@@ -22,7 +24,7 @@ button {
   color: rgb(255, 255, 255);
   margin-top:1px;
   margin-left: 5px;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 15px 5px 15px;
   text-align: center;
   font-size: 16px;
   transition: 0.5s;
