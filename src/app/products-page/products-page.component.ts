@@ -77,9 +77,6 @@ export class ProductsPageComponent implements OnInit {
     }
     this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
     console.log(JSON.parse(this.data.cart.getItem('cart')));
-      // if (JSON.parse(this.data.cart.getItem('cart')) != null) {
-      //   JSON.parse(this.data.cart.getItem('cart')).push(this.item);
-      // } else { this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray)); }
-    // console.log(this.data.cartArray);
+
   }
 }

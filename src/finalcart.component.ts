@@ -1,8 +1,9 @@
+
 export class FinalCart {
   id: string;
   amount: number;
 
-  CartItem() {
+  FinalCart() {
     this.id = undefined;
     this.amount = undefined;
   }
