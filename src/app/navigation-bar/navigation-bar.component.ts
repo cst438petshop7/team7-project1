@@ -55,6 +55,7 @@ export class NavigationBarComponent implements OnInit {
     this.data.userCred.removeItem('key3');
     sessionStorage.clear();
     sessionStorage.clear();
+    this.hideModal2();
     this.router.navigateByUrl('/');
   }
 
