@@ -74,25 +74,36 @@ button:hover {
   background-color: #00395a;
   border:3px solid #1fadff;
   color: rgb(255, 255, 255);
-  margin-top:1px;
-  padding: 5px 5px 5px 5px;
-  text-align: center;
-  font-size: 12px;
-  transition: 0.5s;
-  // display: inline-block;
-  font-size: 20px;
-  border-radius: 5px;
-  float: right;
-  cursor: pointer;
 }
 .button2:hover {
   background-color: #1fadff;
 }
-#product-right{
+
+ #confirm {
+  background-color: #1fadff;
+  border:3px solid #00395a;
+  color: rgb(255, 255, 255);
+
+}
+#confirm:hover {
+  background-color: #1fadff;
+}
+
+#cancel {
+  background-color: #ff5e5e;
+  border:3px solid #1fadff;
+  color: rgb(255, 255, 255);
+
+}
+#cancel:hover {
+  background-color: #1fadff;
+}
+
+#product-right {
   margin-top: 25px;
   text-align: right;
 }
-button-left{
+#button-left {
   margin-right: 15px;
   margin-top: 25px;
 }
