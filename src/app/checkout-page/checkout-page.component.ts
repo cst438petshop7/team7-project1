@@ -108,7 +108,7 @@ export class CheckoutPageComponent implements OnInit {
   }
   finalize() {
     this.data.finalizeOrder();
-    this.router.navigateByUrl('/');
+    // this.router.navigateByUrl('/');
     return;
   }
 }
