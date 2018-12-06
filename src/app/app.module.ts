@@ -12,6 +12,7 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { ThankyouPageComponent } from './thankyou-page/thankyou-page.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -61,7 +62,8 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent],
