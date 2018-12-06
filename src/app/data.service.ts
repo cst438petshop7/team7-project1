@@ -71,11 +71,13 @@ export class DataService {
     console.log(JSON.stringify(this.finalCart));
     const url = 'https://finalize-order-service.herokuapp.com/finalize/' + this.userIn.getItem('key');
     console.log(url);
+    this.cartArray = [];
+    this.finalCart = [];
     return this.http.post(url, this.finalCart, {headers: putHeader});
-    sessionStorage.removeItem('cart');
-    sessionStorage.removeItem('key');
-    sessionStorage.removeItem('key2');
-    sessionStorage.removeItem('key3');
+    // sessionStorage.removeItem('cart');
+    // sessionStorage.removeItem('key');
+    // sessionStorage.removeItem('key2');
+    // sessionStorage.removeItem('key3');
   }
 
   cancelOrder() {
@@ -98,6 +100,8 @@ export class DataService {
     console.log(JSON.stringify(this.finalCart));
     const url = 'https://finalize-order-service.herokuapp.com/reverse/' + this.userIn.getItem('key');
     console.log(url);
+    this.cartArray = [];
+    this.finalCart = [];
     return this.http.post(url, this.finalCart, {headers: putHeader});
   }
 
