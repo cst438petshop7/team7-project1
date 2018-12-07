@@ -51,13 +51,11 @@ export class DetailsPageComponent implements OnInit {
           if (this.addToCart.value.amount < 0) {
             alert('amount cannot be less than 1\nNOTHING PLACED IN CART');
             return;
-          } else if (this.addToCart.value.amount >= stock) {
+          } else if (this.addToCart.value.amount > (stock - element.amount)) {
             alert('not enough items in stock');
             return;
           } else {
-            alert(element.amount);
-            alert(stock - element.amount);
-            // element.amount += this.addToCart.value.amount;
+            element.amount += this.addToCart.value.amount;
           }
         }
       });
