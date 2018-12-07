@@ -18,7 +18,7 @@ export class ThankyouPageComponent implements OnInit {
     this.cartItems = JSON.parse(this.data.cart.getItem('cart'));
   }
   cancel() {
-    this.data.finalizeOrder().subscribe(
+    this.data.cancelOrder().subscribe(
       response => console.log(response),
       next => {
         alert('order cancelled');

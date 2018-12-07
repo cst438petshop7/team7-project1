@@ -68,6 +68,10 @@ export class ProductsPageComponent implements OnInit {
       this.data.cartArray.forEach(element => {
         if (element.id === id) {
           element.amount += amount;
+          if (element.amount >= stock) {
+            alert('not enough items in stock');
+            return;
+          }
           this.b = false;
         }
       });

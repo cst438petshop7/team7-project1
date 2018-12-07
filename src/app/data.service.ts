@@ -43,7 +43,9 @@ export class DataService {
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
           this.router.navigateByUrl('/products');
-        } else { alert('invalid username or password'); }
+        } else {
+          alert('invalid username or password');
+        }
       }
     );
   }
