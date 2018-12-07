@@ -64,10 +64,12 @@ export class DataService {
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
       this.fin.id = element.id;
+      // alert(this.fin.id);
       this.fin.amount = element.amount;
       this.finalCart.push(this.fin);
+      this.fin = new FinalCart();
     });
-
+    console.log(this.finalCart);
     console.log(JSON.stringify(this.finalCart));
     const url = 'https://finalize-order-service.herokuapp.com/finalize/' + this.userIn.getItem('key');
     console.log(url);

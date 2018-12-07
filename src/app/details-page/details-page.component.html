@@ -5,16 +5,19 @@
   <img style="float: left;" src="{{product$.imageUrl['imageUrl']}}" width="40%" />
   <div id="details" style="float: left;">
     <h2>Item Details</h2>
-    <p style="width:230px">{{product$.description['description']}}</p>
+    <p style="width: 350px;">{{product$.description['description']}}</p>
   </div>
   <div id="buying" style="float: right;">
     <h3>Price: ${{product$.price['price']}} </h3>
+    <p>items in stock: {{product$.stock['stock']}}</p>
     <form [formGroup]="addToCart" (ngSubmit)="addToCart.valid && onClickMe(product$.id, product$.imageUrl['imageUrl'], product$.productName['productName'], product$.price['price'], product$.stock['stock'])">
       <input formControlName="amount" id="scroller" type="number" name="points" min="1" max="{{product$.stock['stock']}}" step="1" placeholder=1>
       <br>
       <button class="button">add to cart</button>
     </form>
 
+
   </div><br style="clear: both;"/>
+  <h4><a href="/products">< back to products</a></h4>
 </div>
 
