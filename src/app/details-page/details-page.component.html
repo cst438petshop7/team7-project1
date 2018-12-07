@@ -11,7 +11,7 @@
     <h3>Price: ${{product$.price['price']}} </h3>
     <p>items in stock: {{product$.stock['stock']}}</p>
     <form [formGroup]="addToCart" (ngSubmit)="addToCart.valid && onClickMe(product$.id, product$.imageUrl['imageUrl'], product$.productName['productName'], product$.price['price'], product$.stock['stock'])">
-      <input formControlName="amount" id="scroller" type="number" name="points" min="1" max="{{product$.stock['stock']}}" step="1" value=1>
+      <input formControlName="amount" id="scroller" type="number" name="points" min="1" max="{{product$.stock['stock']}}" step="1" value="1">
       <br>
       <button class="button">add to cart</button>
     </form>

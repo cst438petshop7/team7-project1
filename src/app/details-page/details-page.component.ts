@@ -56,6 +56,7 @@ export class DetailsPageComponent implements OnInit {
             return;
           } else {
             alert(element.amount);
+            alert(stock - element.amount);
             // element.amount += this.addToCart.value.amount;
           }
         }
