@@ -67,13 +67,21 @@ export class ProductsPageComponent implements OnInit {
 
       this.data.cartArray.forEach(element => {
         if (element.id === id) {
-          element.amount += amount;
           this.b = false;
+          if (element.amount >= stock) {
+            alert('not enough items in stock');
+            return;
+          } else {
+            element.amount += amount;
+            alert('added to cart');
+          }
+
         }
       });
 
     if (this.b) {
       this.data.cartArray.push(this.item);
+      alert('added to cart');
     }
     this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
     console.log(JSON.parse(this.data.cart.getItem('cart')));
