@@ -48,7 +48,7 @@ export class DetailsPageComponent implements OnInit {
       this.data.cartArray.forEach(element => {
         if (element.id === id) {
           this.b = false;
-          if (this.addToCart.value.amount < 0) {
+          if (this.addToCart.value.amount <= 0) {
             alert('amount cannot be less than 1\nNOTHING PLACED IN CART');
             return;
           } else if (this.addToCart.value.amount > (stock - element.amount)) {
@@ -56,12 +56,14 @@ export class DetailsPageComponent implements OnInit {
             return;
           } else {
             element.amount += this.addToCart.value.amount;
+            alert('added to cart');
           }
         }
       });
 
     if (this.b) {
       this.data.cartArray.push(this.item);
+      alert('added to cart');
     }
     this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
     console.log(JSON.parse(this.data.cart.getItem('cart')));

@@ -73,6 +73,7 @@ export class ProductsPageComponent implements OnInit {
             return;
           } else {
             element.amount += amount;
+            alert('added to cart');
           }
 
         }
@@ -80,6 +81,7 @@ export class ProductsPageComponent implements OnInit {
 
     if (this.b) {
       this.data.cartArray.push(this.item);
+      alert('added to cart');
     }
     this.data.cart.setItem('cart', JSON.stringify(this.data.cartArray));
     console.log(JSON.parse(this.data.cart.getItem('cart')));

@@ -82,6 +82,8 @@ export class CheckoutPageComponent implements OnInit {
         if (amnt <= 0) {
           alert('minimum in cart can only be 1 press remove to remove');
           element.amount = 1;
+        } else if (amnt > element.stock) {
+          alert('not enough items it stock');
         } else { element.amount = amnt; }
       }
     });
