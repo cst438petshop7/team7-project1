@@ -60,9 +60,8 @@ export class DataService {
 
     this.http.post(url, this.outUser, {headers: putHeader}).subscribe(
       data => {
+        alert(data);
         if (data != null && data.valueOf()['password']['password'] === pass) {
-          // console.log(data);
-          // alert('successful sign in:' + data.valueOf()['username']['username']);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
@@ -117,6 +116,7 @@ export class DataService {
       this.fin.id = element.id;
       this.fin.amount = element.amount;
       this.finalCart.push(this.fin);
+      this.fin = new FinalCart();
     });
 
 
