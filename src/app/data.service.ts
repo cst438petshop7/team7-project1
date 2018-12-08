@@ -41,19 +41,28 @@ export class DataService {
   }
 
   getUserByUsername(user, pass) {
-    this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
+    this.signinuser = new User();
+    this.signinuser.username = user;
+    this.signinpass = new Pass();
+    this.signinpass.password = pass;
+    this.outUser = new OutsideUser();
+    this.outUser.username = this.signinuser;
+    this.outUser.password = this.signinpass;
+    // alert(JSON.stringify(this.outUser));
+
+    const putHeader = new HttpHeaders().append('Content-Type' , 'application/json');
+    putHeader.append('Access-Control-Allow-Origin', '*');
+    putHeader.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    putHeader.append('Access-Control-Allow-Credentials', 'true');
+    putHeader.append('Accept', 'application/json');
+
+    const url = 'https://get-user-service.herokuapp.com/login';
+
+    this.http.post(url, this.outUser, {headers: putHeader}).subscribe(
       data => {
         if (data != null && data.valueOf()['password']['password'] === pass) {
           // console.log(data);
           // alert('successful sign in:' + data.valueOf()['username']['username']);
-          this.signinuser = new User();
-          this.signinuser.username = user;
-          this.signinpass = new Pass();
-          this.signinpass.password = pass;
-          this.outUser = new OutsideUser();
-          this.outUser.user = this.signinuser;
-          this.outUser.pass = this.signinpass;
-          alert(JSON.stringify(this.outUser));
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);

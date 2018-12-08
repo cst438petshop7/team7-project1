@@ -1,11 +1,11 @@
 import { User } from './user.component';
 import { Pass } from './pass.component';
 export class OutsideUser {
-  user: User;
-  pass: Pass;
+  username: User;
+  password: Pass;
 
   OutsideUser() {
-    this.user = new User();
-    this.pass = new Pass();
+    this.username = new User();
+    this.password = new Pass();
   }
 }
