@@ -33,7 +33,7 @@ export class DataService {
   }
 
   getProductById(ID) {
-    return this.http.get('https://productsdb-service.herokuapp.com/id/' + ID);
+    return this.http.get('https://get-products-service.herokuapp.com/id/' + ID);
   }
 
   getUserByUsername(user, pass) {
