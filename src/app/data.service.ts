@@ -76,6 +76,17 @@ export class DataService {
     );
   }
 
+  getUserCred(user) {
+    this.http.get('https://shopdb-service.herokuapp.com/username/' + user).subscribe(
+      data => {
+        this.userIn.setItem('key', data.valueOf()['username']['username']);
+        this.userID.setItem('key2', data.valueOf()['id']);
+        this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
+      }
+    );
+  }
+
+
   changeNavUser() {
     return this.userIn.getItem('key');
   }
