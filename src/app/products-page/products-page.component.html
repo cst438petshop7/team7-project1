@@ -2,7 +2,7 @@
   <h2>Products</h2>
   <hr>
   <ul [@listStagger]="products$" id="products" style="padding-top: 0px;">
-    <li *ngFor= "let product of products$" *ngIf="product.stock > 0" >
+    <li *ngFor= "let product of products$" *ngIf="product.stock['stock'] > 0" >
         <div id="product-left" style="float: left;">
           <img style="float: left;" src="{{product.imageUrl['imageUrl']}}" height="100" />
           <p id="item-name"><a href="/product-details/{{product.id}}">{{product.productName['productName']}}</a></p><br style="clear: both;"/>
