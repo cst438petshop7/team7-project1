@@ -6,6 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/user.component';
+import { OutsideUser } from 'src/outsideuser.component';
 
 
 @Injectable({
@@ -24,6 +25,7 @@ export class DataService {
   signedIn = false;
   putHeader: HttpHeaders;
   signinuser: User;
+  outUser: OutsideUser;
 
 
 
@@ -45,7 +47,9 @@ export class DataService {
           this.signinuser = new User();
           this.signinuser.username = user;
           this.signinuser.password = pass;
-          alert(JSON.stringify(this.signinuser));
+          this.outUser = new OutsideUser();
+          this.outUser.user = this.signinuser;
+          alert(JSON.stringify(this.outUser));
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
