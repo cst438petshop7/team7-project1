@@ -45,6 +45,7 @@ export class CheckoutPageComponent implements OnInit {
   formI: FormGroup;
   formB: FormGroup;
   modal: HTMLElement;
+  cred: number;
 
 
   //
@@ -105,7 +106,13 @@ export class CheckoutPageComponent implements OnInit {
     console.log(JSON.parse(this.data.cart.getItem('cart')));
   }
   showModal() {
+    this.cred = Number(this.data.userCred.getItem('key3'));
+    this.total = Number(this.totalPrice());
+    if (this.cred < this.total) {
+      alert('not enough credits');
+    } else {
     this.modal.style.display = 'block';
+    }
   }
   hideModal() {
     this.modal.style.display = 'none';
