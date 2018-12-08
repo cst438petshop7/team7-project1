@@ -45,7 +45,7 @@ export class DataService {
           this.signinuser = new User();
           this.signinuser.username = user;
           this.signinuser.password = pass;
-          JSON.stringify(this.signinuser);
+          alert(JSON.stringify(this.signinuser));
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
