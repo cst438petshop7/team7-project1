@@ -1,3 +1,4 @@
+import { Pass } from './../pass.component';
 import { FinalCart } from './../finalcart.component';
 import { CartItem } from './../cartitem.component';
 import { Router } from '@angular/router';
@@ -25,6 +26,7 @@ export class DataService {
   signedIn = false;
   putHeader: HttpHeaders;
   signinuser: User;
+  signinpass: Pass;
   outUser: OutsideUser;
 
 
@@ -46,9 +48,11 @@ export class DataService {
           // alert('successful sign in:' + data.valueOf()['username']['username']);
           this.signinuser = new User();
           this.signinuser.username = user;
-          this.signinuser.password = pass;
+          this.signinpass = new Pass();
+          this.signinpass.password = pass;
           this.outUser = new OutsideUser();
           this.outUser.user = this.signinuser;
+          this.outUser.pass = this.signinpass;
           alert(JSON.stringify(this.outUser));
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
