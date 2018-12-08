@@ -3,7 +3,7 @@
   <hr>
   <ul [@listStagger]="products$" id="products" style="padding-top: 0px;">
     <li *ngFor= "let product of products$">
-      <div *ngIf="product.stock['stock'] > 0">
+      <div>
         <div id="product-left" style="float: left;">
           <img style="float: left;" src="{{product.imageUrl['imageUrl']}}" height="100" />
           <p id="item-name"><a href="/product-details/{{product.id}}">{{product.productName['productName']}}</a></p><br style="clear: both;"/>
@@ -13,7 +13,7 @@
           <div id="button-left" style="float: left;"><p style="margin: 0;">Price: ${{product.price['price']}}<br/>items in stock: {{product.stock['stock']}}</p></div>
           <div id="button-right" style="float: right;">
             <form [formGroup]="addToCart" (ngSubmit)="addToCart.valid && onClickMe(product.id, product.imageUrl['imageUrl'], product.productName['productName'], product.price['price'], 1, product.stock['stock'])">
-              <button class="button">add to cart</button>
+              <button *ngIf="product.stock['stock'] > 0" class="button">add to cart</button>
             </form>
 
           </div>

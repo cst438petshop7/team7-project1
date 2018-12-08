@@ -60,7 +60,7 @@ export class DataService {
 
     this.http.post(url, this.outUser, {headers: putHeader}).subscribe(
       data => {
-        alert(data);
+        // alert(data);
         if (data != null && data.valueOf()['password']['password'] === pass) {
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);

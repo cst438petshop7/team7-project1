@@ -41,6 +41,7 @@ export class NavigationBarComponent implements OnInit {
     return this.data.getUserSess();
   }
   showModal2() {
+    this.getUser();
     this.modal.style.display = 'block';
   }
   hideModal2() {
