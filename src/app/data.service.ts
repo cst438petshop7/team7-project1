@@ -69,6 +69,9 @@ export class DataService {
         } else {
           alert('invalid username or password');
         }
+      },
+      error => {
+        alert('invalid username or password');
       }
     );
   }
