@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from 'src/user.component';
 
 
 @Injectable({
@@ -22,11 +23,13 @@ export class DataService {
   fin: FinalCart;
   signedIn = false;
   putHeader: HttpHeaders;
+  signinuser: User;
 
 
 
   getProducts() {
-    return this.http.get('https://productsdb-service.herokuapp.com/allProducts');
+    // https://productsdb-service.herokuapp.com/allProducts
+    return this.http.get('https://get-products-service.herokuapp.com/Products');
   }
 
   getProductById(ID) {
@@ -39,6 +42,10 @@ export class DataService {
         if (data != null && data.valueOf()['password']['password'] === pass) {
           // console.log(data);
           // alert('successful sign in:' + data.valueOf()['username']['username']);
+          this.signinuser = new User();
+          this.signinuser.username = user;
+          this.signinuser.password = pass;
+          JSON.stringify(this.signinuser);
           this.userIn.setItem('key', data.valueOf()['username']['username']);
           this.userID.setItem('key2', data.valueOf()['id']);
           this.userCred.setItem('key3', data.valueOf()['credit']['credit']);
@@ -66,7 +73,6 @@ export class DataService {
     console.log(this.cartArray);
     this.cartArray.forEach(element => {
       this.fin.id = element.id;
-      // alert(this.fin.id);
       this.fin.amount = element.amount;
       this.finalCart.push(this.fin);
       this.fin = new FinalCart();
@@ -77,10 +83,7 @@ export class DataService {
     console.log(url);
     this.cartArray = [];
     return this.http.post(url, this.finalCart, {headers: putHeader});
-    // sessionStorage.removeItem('cart');
-    // sessionStorage.removeItem('key');
-    // sessionStorage.removeItem('key2');
-    // sessionStorage.removeItem('key3');
+
   }
 
   cancelOrder() {
